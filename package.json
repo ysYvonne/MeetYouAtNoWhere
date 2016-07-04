@@ -1,0 +1,10 @@
+{
+  "name": "KitchenSecret_API",
+  "main": "app.js",
+  "dependencies": {
+    "express": "4.10.6",
+    "mongoose": "3.8.21",
+    "fs-extra": "0.13.0",
+    "chance": "0.7.0"
+  }
+}

@@ -8,9 +8,9 @@ var RecipeSchema = new mongoose.Schema({
         type: String,
         default:""
     },
-    meterial: [{
-        type: String,
-        required: true
+    meterials: [{
+        name:String,
+        dosage:String,
     }],
     descirption: {
         type: String,
@@ -20,12 +20,13 @@ var RecipeSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    step: [{
-        type: String,
+    steps: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Step',
         required: true
     }],
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,   
         ref: 'User',
         required: true
     },
@@ -40,11 +41,6 @@ var RecipeSchema = new mongoose.Schema({
         default:0
     },
     favorateNum: {
-        type: Number,
-        required: true,
-        default:0
-    },
-    del: {
         type: Number,
         required: true,
         default:0

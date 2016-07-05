@@ -3,9 +3,17 @@ var Chance = require('chance');
 var fs = require('fs-extra');
 
 exports.postRecipes = function (req, res) {
+
     var Recipe = new Recipe();
     Recipe.name = req.body.name;
     Recipe.description = req.body.description;
+    Recipe.calorie = req.body.calorie;
+    Recipe.meterials = req.body.meterials;
+    Recipe.steps = req.steps;
+    Recipe.userId = req.user._id;
+    Recipe.likeNum = req.body.likeNum;
+    Recipe.favorateNum = req.body.favorateNum;
+
     if (!(req.body.picture === undefined)) {
         var my_chance = new Chance();
         var guid = my_chance.guid();
@@ -15,7 +23,7 @@ exports.postRecipes = function (req, res) {
             if (err)
                 res.status(400).json(err);
             else {
-                Recipe.user = req.user._id;
+                Recipe.userId = req.user._id;
                 Recipe.save(function (err) {
                     if (err)
                         res.status(400).json(err);
@@ -26,7 +34,7 @@ exports.postRecipes = function (req, res) {
         });
     }
     else {
-        Recipe.user = req.user._id;
+        Recipe.userId = req.user._id;
         Recipe.save(function (err) {
             if (err)
                 res.status(400).json(err);
@@ -58,10 +66,14 @@ exports.getRecipe = function (req, res) {
 
 exports.putRecipe = function (req, res) {
     Recipe.update({_id: req.params.Recipe_id}, {
-        name: req.body.name,
-        description: req.body.description,
-        location: req.body.location,
-        picture: req.body.picture
+        name : req.body.name;
+        description : req.body.description;
+        calorie : req.body.calorie;
+        meterials: req.body.meterials
+        steps : req.steps;
+        userId : req.user._id;
+        likeNum : req.body.likeNum;
+        favorateNum : req.body.favorateNum;
     }, function (err, num, raw) {
         if (err)
             res.status(400).json(err);

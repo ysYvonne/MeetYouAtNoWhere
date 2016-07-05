@@ -23,12 +23,7 @@ var UserSchema = new mongoose.Schema({
     },
   	intro: {
         type: String,
-        default:""
-    },
-    del: {
-        type: Number,
-        required: true,
-        default:0
+        default:"这家伙超级懒，什么都没有留下。"
     }
 });
 UserSchema.methods.toJSON = function () {

@@ -18,7 +18,7 @@ var adminGroup = function () {
     };
 };
 
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 80;
 
 var app = express();
 // app.use(qt.static(__dirname + '/'));
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(passport.initialize());
 
-app.use(express.static(path.join(__dirname, 'web')));
+app.use(express.static(path.join(__dirname, 'Web')));
 
 var router = express.Router();
 

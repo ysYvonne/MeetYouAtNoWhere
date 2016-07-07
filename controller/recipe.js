@@ -4,27 +4,27 @@ var fs = require('fs-extra');
 
 exports.postRecipes = function (req, res) {
 
-    var Recipe = new Recipe();
-    Recipe.name = req.body.name;
-    Recipe.description = req.body.description;
-    Recipe.calorie = req.body.calorie;
-    Recipe.meterials = req.body.meterials;
-    Recipe.steps = req.steps;
-    Recipe.userId = req.user._id;
-    Recipe.likeNum = req.body.likeNum;
-    Recipe.favorateNum = req.body.favorateNum;
+    var recipe = new Recipe();
+    recipe.name = req.body.name;
+    recipe.description = req.body.description;
+    recipe.calorie = req.body.calorie;
+    recipe.meterials = req.body.meterials;
+    recipe.steps = req.steps;
+    recipe.userId = req.user._id;
+    recipe.likeNum = req.body.likeNum;
+    recipe.favorateNum = req.body.favorateNum;
 
     if (!(req.body.picture === undefined)) {
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        Recipe.photo = "uploads/" + guid + ".png";
+        recipe.photo = "uploads/" + guid + ".png";
         var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
         fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
             if (err)
                 res.status(400).json(err);
             else {
-                Recipe.userId = req.user._id;
-                Recipe.save(function (err) {
+                recipe.userId = req.user._id;
+                recipe.save(function (err) {
                     if (err)
                         res.status(400).json(err);
                     else
@@ -34,7 +34,7 @@ exports.postRecipes = function (req, res) {
         });
     }
     else {
-        Recipe.userId = req.user._id;
+        recipe.userId = req.user._id;
         Recipe.save(function (err) {
             if (err)
                 res.status(400).json(err);

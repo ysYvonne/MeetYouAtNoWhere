@@ -21,11 +21,8 @@ var adminGroup = function () {
 var port = process.env.PORT || 8000;
 
 var app = express();
-
+// app.use(qt.static(__dirname + '/'));
 mongoose.connect('120.27.95.40:27017');
-
-app.use(qt.static(__dirname + '/'));
-// mongoose.connect('127.0.0.1:27017');
 
 app.use(bodyParser.urlencoded({
     extended: true,
@@ -34,7 +31,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(passport.initialize());
 
-// app.use(express.static(path.join(__dirname, 'Web')));
+app.use(express.static(path.join(__dirname, 'web')));
 
 var router = express.Router();
 

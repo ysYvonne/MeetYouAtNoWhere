@@ -66,14 +66,14 @@ exports.getRecipe = function (req, res) {
 
 exports.putRecipe = function (req, res) {
     Recipe.update({_id: req.params.Recipe_id}, {
-        name : req.body.name;
-        description : req.body.description;
-        calorie : req.body.calorie;
-        meterials: req.body.meterials
-        steps : req.steps;
-        userId : req.user._id;
-        likeNum : req.body.likeNum;
-        favorateNum : req.body.favorateNum;
+        name : req.body.name,
+        description : req.body.description,
+        calorie : req.body.calorie,
+        meterials: req.body.meterials,
+        steps : req.steps,
+        userId : req.user._id,
+        likeNum : req.body.likeNum,
+        favorateNum : req.body.favorateNum
     }, function (err, num, raw) {
         if (err)
             res.status(400).json(err);

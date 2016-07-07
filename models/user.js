@@ -5,7 +5,7 @@ var UserSchema = new mongoose.Schema({
         required: true
     },
      password: {
-        type: Number,
+        type: String,
         required: true
     },
     photo: {
@@ -18,8 +18,7 @@ var UserSchema = new mongoose.Schema({
     },
     birth: {
         type: Date,
-        required: true,
-        default:Date.now
+        required: false
     },
   	intro: {
         type: String,
@@ -29,6 +28,34 @@ var UserSchema = new mongoose.Schema({
 UserSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
+    delete obj.password;
     return obj
 };
+
+function compare(data1, data2, callback) {
+
+    if(!callback) {
+        throw "No callback function was given."
+    }
+    process.nextTick(function() {
+        var result = null;
+        var error = null;
+        try {
+            result =(data1===data2?true:false);
+        } catch(err) {
+            error = err;
+        }
+        callback(error, result);
+    });
+};
+
+UserSchema.methods.verifyPassword = function (password, cb) {
+
+    compare(password,this.password,function (err, isMatch) {
+        if (err)
+            return cb(err);
+        cb(null, isMatch);
+    });
+};
+
 module.exports = mongoose.model('User', UserSchema);

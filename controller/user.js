@@ -6,7 +6,7 @@ exports.postUsers = function (req, res) {
     var user = new User({
         nickname: req.body.nickname,
         password: req.body.password,
-        birth:req.body.birth,
+        birth:new Date(req.body.birth),
         sex: req.body.sex,
         email: req.body.email,
         intro:req.body.intro

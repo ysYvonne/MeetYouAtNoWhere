@@ -5,9 +5,18 @@ var passport = require('passport');
 var qt = require('quickthumb');
 var path = require('path');
 
-var recipeController = require('./controllers/recipe');
-var userController = require('./controllers/user');
-var authController = require('./controllers/auth');
+var recipeController = require('./controller/recipe');
+var userController = require('./controller/user');
+var authController = require('./controller/auth');
+
+var adminGroup = function () {
+    return function (req, res, next) {
+        if (req.user.admin == true)
+            next();
+        else
+            res.status(401).json('Unauthorized');
+    };
+};
 
 var port = process.env.PORT || 8000;
 
@@ -16,7 +25,7 @@ var app = express();
 mongoose.connect('120.27.95.40:27017');
 
 app.use(qt.static(__dirname + '/'));
-mongoose.connect('127.0.0.1:27017');
+// mongoose.connect('127.0.0.1:27017');
 
 app.use(bodyParser.urlencoded({
     extended: true,
@@ -25,13 +34,13 @@ app.use(bodyParser.urlencoded({
 
 app.use(passport.initialize());
 
-app.use(express.static(path.join(__dirname, 'app')));
+// app.use(express.static(path.join(__dirname, 'Web')));
 
 var router = express.Router();
 
 
 router.route('/login')
-    .post(authController.isAuthenticated, userController.login);
+    .post(authController.isAuthenticated,userController.login);
 
 router.route('/users')
     .post(userController.postUsers)

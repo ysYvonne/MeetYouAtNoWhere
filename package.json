@@ -2,9 +2,18 @@
   "name": "KitchenSecret_API",
   "main": "app.js",
   "dependencies": {
-    "express": "4.10.6",
-    "mongoose": "3.8.21",
-    "fs-extra": "0.13.0",
-    "chance": "0.7.0"
+    "express": "latest",
+    "mongoose": "latest",
+    "body-parser": "latest",
+    "bcrypt-nodejs": "latest",
+    "passport": "latest",
+    "passport-http": "latest",
+    "mocha": "latest",
+    "supertest": "latest",
+    "formidable": "latest",
+    "quickthumb": "latest",
+    "fs-extra": "latest",
+    "util": "latest",
+    "chance": "latest"
   }
 }

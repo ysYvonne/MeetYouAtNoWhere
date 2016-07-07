@@ -14,7 +14,7 @@ exports.postUsers = function (req, res) {
     if (req.body.picture != undefined) {
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        user.picture = "app/uploads/" + guid + ".png";
+        user.photo = "app/uploads/" + guid + ".png";
         var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
         fs.writeFile('app/uploads/' + guid + '.png', base64Data, 'base64', function (err) {
             if (err)

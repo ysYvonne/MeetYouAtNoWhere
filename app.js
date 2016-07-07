@@ -18,7 +18,7 @@ var adminGroup = function () {
     };
 };
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 8000;
 
 var app = express();
 // app.use(qt.static(__dirname + '/'));

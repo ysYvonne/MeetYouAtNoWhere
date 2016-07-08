@@ -20,6 +20,10 @@ var UserSchema = new mongoose.Schema({
         type: Date,
         required: false
     },
+    admin:{
+        type: Boolean,
+        default: false
+    },
   	intro: {
         type: String,
         default:"这家伙超级懒，什么都没有留下。"

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var like = new mongoose.Schema({
+var LikeSchema = new mongoose.Schema({
 	recipeId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'Recipe',
@@ -11,7 +11,7 @@ var like = new mongoose.Schema({
         required: true
     }
 });
-UserSchema.methods.toJSON = function () {
+LikeSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
-var label = new mongoose.Schema({
+var LabelSchema = new mongoose.Schema({
 	content: {
         type: String,
         required: true
     }
 });
-UserSchema.methods.toJSON = function () {
+LabelSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

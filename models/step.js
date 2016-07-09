@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var step = new mongoose.Schema({
+var StepSchema = new mongoose.Schema({
     recipeId:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Recipe'
-        required:true,
-    }
+        ref:'Recipe',
+        required:true
+    },
 	description: {
         type: String,
         required: true
@@ -14,7 +14,7 @@ var step = new mongoose.Schema({
         default:""
     }
 });
-UserSchema.methods.toJSON = function () {
+StepSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

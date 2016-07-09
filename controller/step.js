@@ -57,21 +57,22 @@ exports.getStep = function (req, res) {
     });
 };
 
-exports.putStep = function (req, res) {
-    Step.update({_id: req.params.Step_id}, {
-        
-        description : req.body.description,
-
-        if (!(req.body.picture === undefined)) {
+exports.putSteps = function (req, res) {
+    if (!(req.body.picture === undefined)) {
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        photo : "uploads/" + guid + ".png";
+        var photo="uploads/" + guid + ".png";
         var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
         fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
             if (err)
                 res.status(400).json(err);
-    }
-    }, function (err, num, raw) {
+        });
+    };
+    Step.update({_id: req.params.Step_id}, {
+        
+        description : req.body.description,
+        photo:photo
+        }, function (err, num, raw) {
         if (err)
             res.status(400).json(err);
         else

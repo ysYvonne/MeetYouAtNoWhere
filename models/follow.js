@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var follow = new mongoose.Schema({
+var FollowSchema = new mongoose.Schema({
 	followerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'User',
@@ -11,7 +11,7 @@ var follow = new mongoose.Schema({
         required: true
     }
 });
-UserSchema.methods.toJSON = function () {
+FollowSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

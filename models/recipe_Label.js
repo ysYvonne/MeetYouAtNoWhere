@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var recipe_Label = new mongoose.Schema({
+var Recipe_LabelSchema = new mongoose.Schema({
 	recipeId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'Recipe',
@@ -11,7 +11,7 @@ var recipe_Label = new mongoose.Schema({
         required: true
     }
 });
-UserSchema.methods.toJSON = function () {
+Recipe_LabelSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

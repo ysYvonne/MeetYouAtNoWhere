@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var user_Label = new mongoose.Schema({
+var User_LabelSchema = new mongoose.Schema({
 	userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'User',
@@ -11,7 +11,7 @@ var user_Label = new mongoose.Schema({
         required: true
     }
 });
-UserSchema.methods.toJSON = function () {
+User_LabelSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

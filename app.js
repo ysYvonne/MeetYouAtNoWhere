@@ -5,8 +5,6 @@ var passport = require('passport');
 var qt = require('quickthumb');
 var path = require('path');
 
-
-var adminController = require('./controller/admin');
 var authController = require('./controller/auth');
 var followController = require('./controller/follow');
 var labelController = require('./controller/label');
@@ -135,7 +133,7 @@ router.route('/users/:user_id')
     .delete(authController.isAuthenticated, adminGroup(), userController.deleteUser);
 
 router.route('/users/:user_id/profile')
-    .put(authController.isAuthenticated,,userController.putUserInfo);
+    .put(authController.isAuthenticated,userController.putUserInfo);
 
 router.route('/user_Labels')
     .post(authController.isAuthenticated, user_LabelController.postUser_Labels);

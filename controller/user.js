@@ -80,23 +80,24 @@ exports.putUserPassword = function (req, res) {
     });
 };
 exports.putUserInfo = function (req, res) {
+    if (!(req.body.picture === undefined)) {
+        var my_chance = new Chance();
+        var guid = my_chance.guid();
+        var photo = "uploads/" + guid + ".png";
+        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
+        fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
+            if (err)
+                res.status(400).json(err);
+       });
+    }
     User.update({_id: req.user._id}, {
         nickname: req.body.nickname,
         birth:new Date(req.body.birth),
         sex: req.body.sex,
         email: req.body.email,
-        intro:req.body.intro
-
-        if (!(req.body.picture === undefined)) {
-        var my_chance = new Chance();
-        var guid = my_chance.guid();
-        photo : "uploads/" + guid + ".png";
-        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
-            if (err)
-                res.status(400).json(err);
-       }
-    }, function (err, num, raw) {
+        intro:req.body.intro,
+        photo:photo
+        }, function (err, num, raw) {
         if (err)
             res.status(400).json(err);
         else

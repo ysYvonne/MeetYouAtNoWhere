@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var own = new mongoose.Schema({
+var OwnSchema = new mongoose.Schema({
 	recipeId: {
         type: mongoose.Schema.Types.ObjectId,
         ref:'Recipe',
@@ -16,7 +16,7 @@ var own = new mongoose.Schema({
     	default:0
     }
 });
-UserSchema.methods.toJSON = function () {
+OwnSchema.methods.toJSON = function () {
     var obj = this.toObject();
     delete obj.__v;
     return obj

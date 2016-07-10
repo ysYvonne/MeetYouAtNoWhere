@@ -8,11 +8,11 @@ exports.postOwns = function (req, res) {
     own.userId = req.user._id;
     own.status = 0;
 
-    Own.save(function (err) {
+    own.save(function (err) {
             if (err)
                 res.status(400).json(err);
             else
-                res.status(201).json(Own);
+                res.status(201).json(own);
         });
 };
 

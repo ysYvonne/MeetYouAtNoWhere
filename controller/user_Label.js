@@ -7,11 +7,11 @@ exports.postUser_Labels = function (req, res) {
     user_Label.userId = req.user._id;
     user_Label.labelId = req.body.label_id;
 
-    User_Label.save(function (err) {
+    user_Label.save(function (err) {
             if (err)
                 res.status(400).json(err);
             else
-                res.status(201).json(User_Label);
+                res.status(201).json(user_Label);
         });
 };
 

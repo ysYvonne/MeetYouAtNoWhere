@@ -27,17 +27,17 @@ exports.postRecipes = function (req, res) {
                     if (err)
                         res.status(400).json(err);
                     else
-                        res.status(201).json(Recipe);
+                        res.status(201).json(recipe);
                 });
             }
         });
     }
     else {
-        Recipe.save(function (err) {
+        recipe.save(function (err) {
             if (err)
                 res.status(400).json(err);
             else
-                res.status(201).json(Recipe);
+                res.status(201).json(recipe);
         });
     }
 };

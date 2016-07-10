@@ -12,7 +12,7 @@ var RecipeSchema = new mongoose.Schema({
         name:String,
         dosage:String,
     }],
-    descirption: {
+    description: {
         type: String,
         required: true
     },

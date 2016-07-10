@@ -7,11 +7,11 @@ exports.postRecipe_Labels = function (req, res) {
     recipe_Label.recipeId = req.body.recipe_id;
     recipe_Label.labelId = req.body.label_id;
 
-    Recipe_Label.save(function (err) {
+    recipe_Label.save(function (err) {
             if (err)
                 res.status(400).json(err);
             else
-                res.status(201).json(Recipe_Label);
+                res.status(201).json(recipe_Label);
         });
 };
 

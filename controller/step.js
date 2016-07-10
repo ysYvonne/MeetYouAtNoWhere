@@ -22,17 +22,17 @@ exports.postSteps = function (req, res) {
                     if (err)
                         res.status(400).json(err);
                     else
-                        res.status(201).json(Step);
+                        res.status(201).json(step);
                 });
             }
         });
     }
     else {
-        Step.save(function (err) {
+        step.save(function (err) {
             if (err)
                 res.status(400).json(err);
             else
-                res.status(201).json(Step);
+                res.status(201).json(step);
         });
     }
 };

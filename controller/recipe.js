@@ -1,4 +1,5 @@
 var Recipe = require('../models/recipe');
+var Step = require('../models/step');
 var Chance = require('chance');
 var fs = require('fs-extra');
 
@@ -9,10 +10,30 @@ exports.postRecipes = function (req, res) {
     recipe.description = req.body.description;
     recipe.calorie = req.body.calorie;
     recipe.meterials = req.body.meterials;
-    recipe.steps = req.body.steps;
+    recipe.steps = req.body.steps
     recipe.userId = req.user._id;
-    recipe.likeNum = req.body.likeNum;
-    recipe.favorateNum = req.body.favorateNum;
+    //recipe.likeNum = req.body.likeNum;
+    //recipe.favorateNum = req.body.favorateNum;
+
+ /*
+    var meterial_str = new String();
+
+    meterial_str = req.body.meterials;
+
+    var meterials = new Array(); //定义一数组 
+
+    meterials=meterial_str.split(","); //字符分割 
+    for (i=0;i<meterials.length ;i++ ) 
+    { 
+        var str = new Array();
+        str = meterials[i].split("#");
+        recipe.meterials[i].name = str[0];
+        recipe.meterials[i].dosage = str[1];
+    } 
+
+*/
+
+
 
     if (!(req.body.picture === undefined)) {
         var my_chance = new Chance();

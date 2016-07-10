@@ -23,7 +23,6 @@
 </head>
 <body>
 
-
  
 
 	<!--header-->
@@ -38,8 +37,8 @@
 					<li><a href="recipes.html" title="Recipes"><span>分类</span></a>
 						<!-- <ul>
 							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
-						</ul>
-					</li> -->
+						</ul> -->
+					</li>
 					<!-- <li><a href="blog.html" title="Blog"><span>Blog</span></a>
 						<ul>
 							<li><a href="blog_single.html" title="Blog post">Blog post</a></li>
@@ -84,42 +83,22 @@
 		<div class="wrap clearfix">
 			<!--row-->
 			<div class="row">
-			<!--content-->
+				<!--content-->
 				<section class="content center full-width wow fadeInUp">
 					<div class="modal container">
-						<h3>注册</h3>
-						<div class="f-row">
-							<input type="text" placeholder="昵称" />
-						</div>
-						<div class="f-row">
-							<input type="email" placeholder="电子邮箱" />
-						</div>
-						<div class="f-row">
-							<input type="password" placeholder="密码" />
-						</div>
-						<div class="f-row">
-							<input type="password" placeholder="重复密码" />
-						</div>
-						<div class="f-row">
-							<label for="birth">生日：</label><input id="birth" type="date" value="2016-01-01"/>
-						</div>
-						<div class="f-row">
-							<div class="f-row full">
-							<label for="sex">性别：</label>
-									<input type="radio" id="sex1" name="radio"/>
-									<label for="r1">男</label>
-									&nbsp
-									<input type="radio" id="sex2" name="radio"/>
-									<label for="r2">女</label>
+						<form method="post" action="contact_form_message.php" name="contactform" id="contactform">
+							<h3>删除理由</h3>
+							<div id="message" class="alert alert-danger"></div>
+							<div class="f-row">
+								<input type="email" placeholder="用户邮箱" id="email" />
 							</div>
-						</div>
-						<div class="f-row">
-							<input type="text" placeholder="来一段个性签名吧 o(*≧▽≦)ツ" />
-						</div>
-						<div class="f-row bwrap">
-							<input type="submit" value="注册" />
-						</div>
-						<p>已拥有账号？<a href="login.html">登录</a></p>
+							<div class="f-row">
+								<textarea placeholder="告诉用户，删除的理由(ﾉ･ω･)ﾉﾞ" id="comments"></textarea>
+							</div>
+							<div class="f-row bwrap">
+								<input type="submit" value="发送信息" />
+							</div>
+						</form>
 					</div>
 				</section>
 				<!--//content-->
@@ -137,38 +116,38 @@
 			<div class="row">
 				<article class="one-half">
 					<h5>关于 厨房秘密（KitchenSecret）</h5>
-					<p>把你的拿手好菜和大家分享吧(。-`ω´-)</p >
-					<p>快来学习全新的菜品吧ヽ(･ω･｡)ﾉ</p >
+					<p>把你的拿手好菜和大家分享吧(。-`ω´-)</p>
+					<p>快来学习全新的菜品吧ヽ(･ω･｡)ﾉ</p>
 				</article>
 				<article class="one-fourth">
 					<h5>需要帮助?</h5>
-					<p>联系我们</p >
-					<p><em>T:</em>  ＋86 13797867317<br /><em>E:</em>  <a href=" ">bjtu123456@email.com</a ></p >
+					<p>联系我们</p>
+					<p><em>T:</em>  ＋86 13797867317<br /><em>E:</em>  <a href="#">bjtu123456@email.com</a></p>
 				</article>
 				<article class="one-fourth">
 					<h5>关注我们</h5>
 					<ul class="social">
-						<li class="facebook"><a href="#" title="facebook">facebook</a ></li>
-						<li class="youtube"><a href="#" title="youtube">youtube</a ></li>
-						<li class="rss"><a href="#" title="rss">rss</a ></li>
-						<li class="gplus"><a href="#" title="gplus">google plus</a ></li>
-						<li class="linkedin"><a href="#" title="linkedin">linkedin</a ></li>
-						<li class="twitter"><a href="#" title="twitter">twitter</a ></li>
-						<li class="pinterest"><a href="#" title="pinterest">pinterest</a ></li>
-						<li class="vimeo"><a href="#" title="vimeo">vimeo</a ></li>
+						<li class="facebook"><a href="#" title="facebook">facebook</a></li>
+						<li class="youtube"><a href="#" title="youtube">youtube</a></li>
+						<li class="rss"><a href="#" title="rss">rss</a></li>
+						<li class="gplus"><a href="#" title="gplus">google plus</a></li>
+						<li class="linkedin"><a href="#" title="linkedin">linkedin</a></li>
+						<li class="twitter"><a href="#" title="twitter">twitter</a></li>
+						<li class="pinterest"><a href="#" title="pinterest">pinterest</a></li>
+						<li class="vimeo"><a href="#" title="vimeo">vimeo</a></li>
 					</ul>
 				</article>
 				
 				<div class="bottom">
-					<p class="copy">Copyright 2016 KitchenSecret. All rights reserved</p >
+					<p class="copy">Copyright 2016 KitchenSecret. All rights reserved</p>
 					
 					<nav class="foot-nav">
 						<ul>
-							<li><a href="index.html" title="Home">首页</a ></li>
-							<li><a href="recipes.html" title="Recipes">分类</a ></li>
-							<li><a href="contact.html" title="Contact">联系我们</a ></li>    
-							<li><a href="find_recipe.html" title="Search for recipes">搜索菜谱</a ></li>
-							<li><a href="login.html" title="Login">登录</a ></li>	<li><a href="register.html" title="Register">注册</a ></li>													
+							<li><a href="index.html" title="Home">首页</a></li>
+							<li><a href="recipes.html" title="Recipes">分类</a></li>
+							<li><a href="contact.html" title="Contact">联系我们</a></li>    
+							<li><a href="find_recipe.html" title="Search for recipes">搜索菜谱</a></li>
+							<li><a href="login.html" title="Login">登录</a></li>	<li><a href="register.html" title="Register">注册</a></li>													
 						</ul>
 					</nav>
 				</div>

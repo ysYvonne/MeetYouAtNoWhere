@@ -43,7 +43,7 @@ function load() {
  * Controller of the kitchenSecretAppApp
  */
 angular.module('kitchenSecretApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope,$http,$window) {
     load();
     $('.scroll-to-top').click(function () {
         $('body,html').animate({
@@ -51,9 +51,8 @@ angular.module('kitchenSecretApp')
         }, 800);
         return false;
     });
-    $scope.awesomeThings = [
-        'HTML5 Boilerplate',
-        'AngularJS',
-        'Karma'
-    ];
+    $scope.userid=$window.sessionStorage['userid'];
+    $http.get('api/users/'+$scope.userid).success(function  (data) {
+     $scope.awesomeThings=data;
+  });
 });

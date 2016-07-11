@@ -10,7 +10,7 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('RegisterCtrl', function ($scope) {
+  .controller('FindRecipeCtrl', function ($scope) {
     load();
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

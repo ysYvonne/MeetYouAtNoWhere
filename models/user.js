@@ -16,6 +16,9 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    sex: {
+        type: String
+    },
     birth: {
         type: Date,
         required: false

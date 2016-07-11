@@ -9,32 +9,33 @@
 					<div class="modal container">
 						<h3>注册</h3>
 						<div class="f-row">
-							<input type="text" placeholder="昵称" />
+						<!--<input type="text" name="username" id="username" placeholder="用户名" ng-model="username" required />-->
+							<input type="text" name="nickname" id="nickname" placeholder="昵称" ng-model="nickname" required/>
 						</div>
 						<div class="f-row">
-							<input type="email" placeholder="电子邮箱" />
+							<input type="email" name="email" id="email" placeholder="电子邮箱" ng-model="email" required/>
 						</div>
 						<div class="f-row">
-							<input type="password" placeholder="密码" />
+							<input type="password" name="password" id="password" placeholder="密码" ng-model="password" required/>
 						</div>
 						<div class="f-row">
-							<input type="password" placeholder="重复密码" />
+							<input type="password" name="password1" id="password1" placeholder="重复密码" ng-model="password1" required/>
 						</div>
 						<div class="f-row">
-							<label for="birth">生日：</label><input id="birth" type="date" value="2016-01-01"/>
+							<label for="birth">生日：</label><input name="birth" id="birth" type="date" value="2016-01-01" ng-model="birth" required/>
 						</div>
 						<div class="f-row">
 							<div class="f-row full">
 							<label for="sex">性别：</label>
-									<input type="radio" id="sex1" name="radio"/>
+									<input type="radio" id="male" name="male"/>
 									<label for="r1">男</label>
 									&nbsp
-									<input type="radio" id="sex2" name="radio"/>
+									<input type="radio" id="female" name="female"/>
 									<label for="r2">女</label>
 							</div>
 						</div>
 						<div class="f-row">
-							<input type="text" placeholder="来一段个性签名吧 o(*≧▽≦)ツ" />
+							<input type="text" name="intro" id="intro" placeholder="来一段个性签名吧 o(*≧▽≦)ツ" ng-model="intro" required/>
 						</div>
 						<div class="f-row bwrap">
 							<input type="submit" value="注册" />

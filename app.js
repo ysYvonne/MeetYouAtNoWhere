@@ -21,7 +21,7 @@ var adminGroup = function () {
         if (req.user.admin == true)
             next();
         else
-            res.status(401).json('Unauthorized');
+            res.status(400).json('Unauthorized');
     };
 };
 

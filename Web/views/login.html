@@ -5,26 +5,28 @@
 			<div class="row">
 			<!--content-->
 				<section class="content center full-width wow fadeInUp">
+				<form name="form" ng-submit="login()" role="form">
 					<div class="modal container">
 						<h3>登录</h3>
 						<div class="f-row">
-							<input type="text" placeholder="用户名" />
+							<input type="text" name="username" id="username" placeholder="用户名" ng-model="username" required />
 						</div>
 						<div class="f-row">
-							<input type="password" placeholder="密码" />
+							<input type="password" name="password" id="password" placeholder="密码" class="form-control" ng-model="password" required />
 						</div>
 						
 						<div class="f-row">
 							<input type="checkbox" />
 							<label>记住我</label>
 						</div>
-						
+						{{username}}{{password}}
 						<div class="f-row bwrap">
 							<input type="submit" value="登录" />
 						</div>
 						<p><a href="#">忘记密码？</a></p>
-						<p>还没有账号？<a href="register.html">立即注册.</a></p>
+						<p>还没有账号？<a href="/#/register">立即注册.</a></p>
 					</div>
+					</form>
 				</section>
 				<!--//content-->
 			</div>

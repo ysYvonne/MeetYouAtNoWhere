@@ -8,11 +8,14 @@
  *
  * Main module of the application.
  */
+angular.module('Authentication', []);
 angular
   .module('kitchenSecretApp', [
+    'Authentication',
     'ngRoute',
+    'ngCookies'
   ])
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', '$locationProvider',  function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -70,7 +73,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  })
+  }])
   .controller('IndexCtrl', [function($scope,$location){
     if (true) {
 

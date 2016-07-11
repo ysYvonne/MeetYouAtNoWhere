@@ -20,7 +20,7 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        controllerAs: 'main',
       })
       .when('/login',{
         templateUrl: 'views/login.html',
@@ -73,10 +73,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  }])
-  .controller('IndexCtrl', [function($scope,$location){
-    if (true) {
-
-    }
-      $scope.style='home';
   }]);

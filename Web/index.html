@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="kitchenSecretApp">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -22,8 +22,6 @@
 	<![endif]-->
 </head>
 <body class="home">
- 
-
 
 	<!--header-->
 	<header class="head" role="banner">
@@ -79,315 +77,7 @@
 	<!--//header-->
 		
 	<!--main-->
-	<main class="main" role="main">
-		<!--intro-->
-		<div class="intro">
-			<figure class="bg"><img src="images/intro.jpg" alt="" /></figure>
-			
-			<!--wrap-->
-			<div class="wrap clearfix">
-				<!--row-->
-				<div class="row">
-					<article class="three-fourth text wow zoomIn" data-wow-delay=".2s">
-						<h1>Welcome to KitchenSecret!</h1>
-						<p>这里就是 <strong>KitchenSecret</strong>, 棒棒的介绍哟</p>
-						<p>其实就是还没想好简介</p>
-						<a href="register.html" class="button white more medium">注册，分享菜谱!</a>
-						<p>已注册? 点击 <a href="login.html">这里</a> 直接登录.</p>
-					</article>
-					
-					<!--search recipes widget-->
-					<div class="one-fourth wow fadeInDown" data-wow-delay=".5s">
-						<div class="widget container">
-							<div class="textwrap">
-								<h3>搜索菜谱</h3>
-								<p>你所需要做的就是输入菜品关键字 </p>
-								<p>你也可以选择特定分类哟</p>
-								<p>这里一定有吸引你的美食呢</p> 
-								<p>玩得开心!</p>
-							</div>
-							<form action="find_recipe.html">
-								<div class="f-row">
-									<input type="text" placeholder="输入菜品关键字" />
-								</div>
-								<div class="f-row">
-									<select>
-										<option>选择分类</option>
-										<option>主食</option>
-										<option>甜点</option>
-										<option>饮料</option>
-										<option>小吃</option>
-										<option>西餐</option>
-										<option>海鲜</option>
-									</select>
-								</div>
-								<div class="f-row bwrap">
-									<input type="submit" value="去吃吧～皮卡丘!" />
-								</div>
-							</form>
-						</div>
-					</div>
-					<!--//search recipes widget-->
-				</div>
-				<!--//row-->
-			</div>
-			<!--//wrap-->
-		</div>
-		<!--//intro-->
-		
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<!--row-->
-			<div class="row">
-				<!--content-->
-				<section class="content full-width">
-					<div class="icons dynamic-numbers">
-						<header class="s-title wow fadeInDown">
-							<h2 class="ribbon large">开启你的菜谱之旅吧(´・ω・`)</h2>
-						</header>
-						
-						<!--row-->
-						
-						<!--//row-->
-					</div>
-				</section>
-				<!--//content-->
-			
-				<!--content-->
-				<section class="content three-fourth">
-					<!--cwrap-->
-					<div class="cwrap">
-						<!--entries-->
-						<div class="entries row">
-							<!--featured recipe-->
-							<div class="featured two-third wow fadeInLeft">
-								<header class="s-title">
-									<h2 class="ribbon">今日推荐</h2>
-								</header>
-								<article class="entry">
-									<figure>
-										<img src="images/img2.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="recipe.html">煎鸡蛋</a></h2>
-										<p>这是一个香喷喷的煎鸡蛋嘞 </p>
-										<div class="actions">
-											<div>
-												<a href="#" class="button">查看完整菜谱</a>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!--//featured recipe-->
-							
-							<!--featured member-->
-							<div class="featured one-third wow fadeInLeft" data-wow-delay=".2s">
-								<header class="s-title">
-									<h2 class="ribbon star">菜谱分享人</h2>
-								</header>
-								<article class="entry">
-									<figure>
-										<img src="images/avatar.jpg" alt="" />
-										
-									</figure>
-									<div class="container">
-										<h2><a href="my_profile.html">隔壁老王</a></h2>
-										<blockquote>推荐理由：色、香、味俱全，随手捞个蛋就能做，皮卡 (｡・`ω´･)</blockquote>
-										<div class="actions">
-											<div>
-												<p><——wuli maker!</p>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
-							<!--//featured member-->
-						</div>
-						<!--//entries-->
-					</div>
-					<!--//cwrap-->
-				
-					<!--cwrap-->
-					<div class="cwrap">
-						<header class="s-title">
-							<h2 class="ribbon bright">最新菜谱</h2>
-						</header>
-						
-						<!--entries-->
-						<div class="entries row">
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft">
-								<figure>
-									<img src="images/img6.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">泰式水果炒饭</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-medium"></i><a href="#">中</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft" data-wow-delay=".2s">
-								<figure>
-									<img src="images/img5.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">辣味摩洛哥对虾配番茄</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft" data-wow-delay=".4s">
-								<figure>
-									<img src="images/img8.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">简易蓝莓蛋糕</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-easy"></i><a href="#">易</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft" data-wow-delay=".6s">
-								<figure>
-									<img src="images/img7.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">香蕉蛋卷</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft" data-wow-delay=".8s">
-								<figure>
-									<img src="images/img3.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">疯狂寿司：你的家庭自制寿司</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-easy"></i><a href="#">易</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third wow fadeInLeft" data-wow-delay="1s">
-								<figure>
-									<img src="images/img4.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">奶油泡芙：吃了不会胖哟</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef/recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<div class="quicklinks">
-								<a href="#" class="button">更多菜谱</a>
-								<a href="javascript:void(0)" class="button scroll-to-top">回到顶部</a>
-							</div>
-						</div>
-						<!--//entries-->
-					</div>
-					<!--//cwrap-->
-				
-					<!--cwrap-->
-					
-				</section>
-				<!--//content-->
-		
-			
-				<!--right sidebar-->
-				<aside class="sidebar one-fourth">
-					<div class="widget wow fadeInRight">
-						<h3>菜谱分类</h3>
-						<ul class="boxed">
-							<li class="light"><a href="recipes.html" title="Appetizers"><i class="ico i-appetizers"></i> <span>主菜</span></a></li>
-							<li class="medium"><a href="recipes.html" title="Cocktails"><i class="ico i-cocktails"></i> <span>饮料</span></a></li>
-							<li class="dark"><a href="recipes.html" title="Deserts"><i class="ico i-deserts"></i> <span>甜点</span></a></li>
-							
-							<li class="medium"><a href="recipes.html" title="Cocktails"><i class="ico i-eggs"></i> <span>小吃</span></a></li>
-							<li class="dark"><a href="recipes.html" title="Equipment"><i class="ico i-equipment"></i> <span>海鲜</span></a></li>
-							<li class="light"><a href="recipes.html" title="Events"><i class="ico i-events"></i> <span>西餐</span></a></li>
-						
-							<li class="dark"><a href="recipes.html" title="Fish"><i class="ico i-fish"></i> <span>海鲜</span></a></li>
-							<li class="light"><a href="recipes.html" title="Ftness"><i class="ico i-fitness"></i> <span>素食</span></a></li>
-							<li class="medium"><a href="recipes.html" title="Healthy"><i class="ico i-healthy"></i> <span>无糖</span></a></li>
-							
-							<li class="light"><a href="recipes.html" title="Asian"><i class="ico i-asian"></i> <span>低脂</span></a></li>
-							<li class="medium"><a href="recipes.html" title="Mexican"><i class="ico i-mexican"></i> <span>麻辣</span></a></li>
-							<li class="dark"><a href="recipes.html" title="Pizza"><i class="ico i-pizza"></i> <span>无糖</span></a></li>
-							
-							<li class="medium"><a href="recipes.html" title="Kids"><i class="ico i-kids"></i> <span>低卡路里</span></a></li>
-							<li class="dark"><a href="recipes.html" title="Meat"><i class="ico i-meat"></i> <span>Meat</span></a></li>
-							<li class="light"><a href="recipes.html" title="Snacks"><i class="ico i-snacks"></i> <span>Snacks</span></a></li>
-							
-							<li class="dark"><a href="recipes.html" title="Salads"><i class="ico i-salads"></i> <span>Salads</span></a></li>
-							<li class="light"><a href="recipes.html" title="Storage"><i class="ico i-storage"></i> <span>Storage</span></a></li>
-							<li class="medium"><a href="recipes.html" title="Vegetarian"><i class="ico i-vegetarian"></i> <span>Vegetarian</span></a></li>
-						</ul>
-					</div>
-						
-					
-					<div class="widget wow fadeInRight" data-wow-delay=".6s">
-						<h3>广告</h3>
-						<a href="#"><img src="images/advertisment.png" alt="" /></a>
-					</div>
-				</aside>
-			</div>
-			<!--//right sidebar-->
-		</div>
-		<!--//wrap-->
-	</main>
+	<div class="main" ng-view></div>
 	<!--//main-->
 	
 	<!--call to action-->
@@ -426,11 +116,11 @@
 					
 					<nav class="foot-nav">
 						<ul>
-							<li><a href="index.html" title="Home">首页</a></li>
-							<li><a href="recipes.html" title="Recipes">分类</a></li>
-							<li><a href="contact.html" title="Contact">联系我们</a></li>    
-							<li><a href="find_recipe.html" title="Search for recipes">搜索菜谱</a></li>
-							<li><a href="login.html" title="Login">登录</a></li>	<li><a href="register.html" title="Register">注册</a></li>													
+							<li><a href="/" title="Home">首页</a></li>
+							<li><a href="recipes" title="Recipes">分类</a></li>
+							<li><a href="contact" title="Contact">联系我们</a></li>    
+							<li><a href="find_recipe" title="Search for recipes">搜索菜谱</a></li>
+							<li><a href="login" title="Login">登录</a></li>	<li><a href="register" title="Register">注册</a></li>												
 						</ul>
 					</nav>
 				</div>
@@ -443,47 +133,17 @@
 	<div class="preloader">
 		<div class="spinner"></div>
 	</div>
-	<!--//preloader-->
-	
+
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery.uniform.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script src="js/jquery.slicknav.min.js"></script>
 	<script src="js/scripts.js"></script>
-	<script>
-		window.dynamicNumbersBound = false;
-		var wow = new WOW();
-		WOW.prototype.show = function(box) {
-			wow.applyStyle(box);
-			if (typeof box.parentNode !== 'undefined' && hasClass(box.parentNode, 'dynamic-numbers') && !window.dynamicNumbersBound) {
-				bindDynamicNumbers();
-				window.dynamicNumbersBound = true;
-			}
-			return box.className = "" + box.className + " " + wow.config.animateClass;
-		};
-		wow.init();
-		
-		function hasClass(element, cls) {
-			return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
-		}
-		
-		function bindDynamicNumbers() {
-			$('.dynamic-number').each(function() {				
-				var startNumber = $(this).text();
-				var endNumber = $(this).data('dnumber');
-				var dynamicNumberControl = $(this);
-				
-				$({numberValue: startNumber}).animate({numberValue: endNumber}, {
-					duration: 4000,
-					easing: 'swing',
-					step: function() { 
-						$(dynamicNumberControl).text(Math.ceil(this.numberValue)); 
-					}
-				});
-			});	
-		}
-		
-	</script>
+	<script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
 </body>
 </html>
 

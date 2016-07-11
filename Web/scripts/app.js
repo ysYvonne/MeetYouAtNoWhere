@@ -9,13 +9,8 @@
  * Main module of the application.
  */
 angular
-  .module('kitchenSecretAppApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
+  .module('kitchenSecretApp', [
     'ngRoute',
-    'ngSanitize',
-    'ngTouch'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -24,7 +19,17 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/login',{
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .controller('IndexCtrl', [function($scope,$location){
+    if (true) {
+      
+    }
+      $scope.style='home';
+  }]);

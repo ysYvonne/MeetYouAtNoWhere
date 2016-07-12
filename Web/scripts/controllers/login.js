@@ -24,11 +24,13 @@ angular.module('kitchenSecretApp')
                     if (response) {
                         AuthenticationService.SetCredentials($scope.username, $scope.password);
                         $window.sessionStorage['userid'] = response[0]._id;
-                        $window.sessionStorage['username'] = response[0].username;
+                        $window.sessionStorage['nickname'] = response[0].nickname;
+                        $window.sessionStorage['email'] = response[0].email;
+                        $window.sessionStorage['admin'] = response[0].admin;
                         $location.path('/');
-                        $window.location.reload();
+                        // $window.location.reload();
                     } else {
-                        $scope.error = response.message;
+                        $scope.error = "用户名或密码错误";
                     }
                 });
             };

@@ -14,6 +14,9 @@ angular.module('Authentication')
                     .success(function (response) {
                         callback(response);
                     })
+                    .error(function (response) {
+                        callback(null);
+                    })
                 };
 
         service.SetCredentials = function (username, password) {

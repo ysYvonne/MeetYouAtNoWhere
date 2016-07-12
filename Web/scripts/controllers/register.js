@@ -49,8 +49,7 @@ angular.module('kitchenSecretApp')
                             'Content-Type' : 'application/x-www-form-urlencoded'
                         }
                     }).success(function (data, status, headers, config) {
-                        $location.path('/#/login');
-                        // $window.location.reload();
+                        $location.path('/login');
                     })
                     .error(function (data, status, headers, config) {
                         $scope.message = "register error";

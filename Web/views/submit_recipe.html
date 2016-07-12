@@ -71,24 +71,24 @@
 							
 							<section>
 								<h2>材料</h2>
-								<div class="f-row ingredient">
-									<div class="large"><input type="text" placeholder="材料名称" /></div>
-									<div class="small"><input type="text" placeholder="用量" /></div>
-									<button class="remove">-</button>
+								<div class="f-row ingredient" ng-repeat="ingredient in ingredientlist">
+									<div class="large"><input type="text" placeholder="材料名称" ng-model="ingredient.name"/></div>
+									<div class="small"><input type="text" placeholder="用量" ng-model="ingredient.amount"/></div>
+									<button class="remove" ng-show="$index!=0" ng-click="delingredient($index)">-</button>
 								</div>
 								<div class="f-row full">
-									<button class="add">添加一种材料</button>
+									<button class="add" ng-click="addingredient()">添加一种材料</button>
 								</div>
 							</section>	
 							
 							<section>
 								<h2>步骤 <span>(添加步骤，每次只能添加一步)</span></h2>
-								<div class="f-row instruction">
-									<div class="full"><input type="text" placeholder="步骤" /></div>
-									<button class="remove">-</button>
+								<div class="f-row instruction" ng-repeat="instruction in instructionlist">
+									<div class="full"><input type="text" placeholder="步骤" ng-model="instruction.detail"/></div>
+									<button class="remove" ng-show="$index!=0" ng-click="delinstruction($index)">-</button>
 								</div>
 								<div class="f-row full">
-									<button class="add">添加一个步骤</button>
+									<button class="add" ng-click="addinstruction()">添加一个步骤</button>
 								</div>
 							</section>							
 							<div class="f-row full">

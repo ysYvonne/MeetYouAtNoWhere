@@ -28,13 +28,30 @@
 									<div class="full"><input type="text" placeholder="菜品名" /></div>
 								</div>
 								<div class="f-row">
-									<div class="third"><input type="text" placeholder="准备时间" /></div>
 									<div class="third"><input type="text" placeholder="制作时间" /></div>
-									<div class="third"><input type="text" placeholder="难度" /></div>
-								</div>
-								<div class="f-row">
+									<div class="third"><input type="text" placeholder="卡路里含量" /></div>
 									<div class="third"><input type="text" placeholder="适宜人数？" /></div>
-									<div class="third"><select><option selected="selected">选择一个分类</option></select></div>
+								</div>
+								<div class="f-row">		
+									<div class="third">
+										<select>
+											<option selected="selected">难度</option>
+                                            <option>简单</option>
+                                            <option>中等</option>
+                                            <option>困难</option>
+										</select>
+									</div>
+									<div class="third">
+										<select>
+											<option selected="selected">选择一个分类</option>
+                                            <option>主食</option>
+                                            <option>甜点</option>
+                                            <option>饮料</option>
+                                            <option>小吃</option>
+                                            <option>西餐</option>
+                                            <option>海鲜</option>
+										</select>
+									</div>
 								</div>
 							</section>
 							
@@ -50,7 +67,6 @@
 								<div class="f-row ingredient">
 									<div class="large"><input type="text" placeholder="材料名称" /></div>
 									<div class="small"><input type="text" placeholder="用量" /></div>
-									<div class="third"><select><option selected="selected">选择分类</option></select></div>
 									<button class="remove">-</button>
 								</div>
 								<div class="f-row full">
@@ -75,18 +91,6 @@
 									<input type="file"/>
 								</div>
 							</section>	
-							
-							<section>
-								<h2>状态 <span>(你是想保存草稿还是直接提交)</span></h2>
-								<div class="f-row full">
-									<input type="radio" id="r1" name="radio"/>
-									<label for="r1">保存草稿</label>
-								</div>
-								<div class="f-row full">
-									<input type="radio" id="r2" name="radio"/>
-									<label for="r2">直接提交</label>
-								</div>
-							</section>
 							
 							<div class="f-row full">
 								<input type="submit" class="button" id="submitRecipe" value="发布" />

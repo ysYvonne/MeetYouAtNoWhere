@@ -15,12 +15,16 @@ exports.postRecipes = function (req, res) {
     recipe.steps = req.body.steps;
     recipe.userId = req.user._id;
 
-    if (!(req.body.picture === undefined)) {
+    var file = req.files.picture;
+    if (!(req.files.picture === undefined)) {
+
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        recipe.photo = "uploads/" + guid + ".png";
-        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
+        var type=req.files.picture.type.split('/')[1];
+        recipe.photo = "uploads/" + guid + "."+type;
+        console.log(recipe.photo);
+        // var base64Data = req.files.picture.replace(/^data:image\/png;base64,/, "");
+        fs.writeFile(recipe.photo, file, 'base64' ,function (err) {
             if (err)
                 res.status(400).json(err);
             else {

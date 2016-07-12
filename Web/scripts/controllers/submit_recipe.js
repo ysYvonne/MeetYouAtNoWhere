@@ -11,12 +11,14 @@
  };
 angular.module('kitchenSecretApp')
   .controller('SubmitRecipeCtrl', 
-  	['$scope', '$rootScope', '$location', '$http', '$window', 'AuthenticationService',
-        function ($scope, $rootScope, $location, $http, $window, AuthenticationService) {
+  	['$scope', '$rootScope', '$location', '$http', '$window', 'AuthenticationService','Upload', '$timeout',
+        function ($scope, $rootScope, $location, $http, $window, AuthenticationService ,Upload, $timeout) {
             load();
             $scope.newstring = {};
             $scope.orignalpic = {};
             var imagestring = {};
+
+
 
             $scope.ingredientlist=[{name:"",amount:""}];
 
@@ -39,38 +41,64 @@ angular.module('kitchenSecretApp')
             $scope.delinstruction=function(idx){
                 $scope.instructionlist.splice(idx,1);
             };
-            $scope.SubmitRecipe = function () {
-                    $http({
-                        method : 'POST',
-                        url : 'api/recipe',
-                        data :
-                        "name=" + $scope.name +
-                        "&makeTime=" + $scope.makeTime +
-                        "&calorie=" + $scope.calorie +
-                        "&peopleNum=" + $scope.peopleNum +
-                        "&description=" + $scope.description,
-                        headers : {
-                            'Content-Type' : 'application/x-www-form-urlencoded'
-                        }
-                    }).success(function (data, status, headers, config) {
-                        $http({
-                        method : 'POST',
-                            url: 'api/recipe_Label',
-                            data: "",
-                            //把type和level写入，要得到上面获得的recipe_id和对应label的id
-                            headers:{
-                                'Content-Type' : 'application/x-www-form-urlencoded'
-                            }
-                        }).success(function (data, status, headers, config) {
-                            $location.path('/');
-                        }).error(function (data, status, headers, config) {
-                            $scope.message = "register error";
-                        })                 
+
+            $scope.SubmitRecipe = function (file) {
+
+
+
+            file.upload = Upload.upload({
+              url: 'api/recipe',
+              method:'POST',
+              data: {
+                name:$scope.name,
+                makeTime:$scope.makeTime,
+                calorie:$scope.calorie,
+                peopleNum:$scope.peopleNum,
+                description:$scope.description,
+                picture: file
+                },
+            });
+
+            file.upload.then(function (response) {
+              $timeout(function () {
+                file.result = response.data;
+              });
+            }, function (response) {
+              if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+            }, function (evt) {
+              // Math.min is to fix IE which reports 200% sometimes
+              file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+
+
+
+
+                        // $http({
+                        // method : 'POST',
+                        //     url: 'api/recipe_Label',
+                        //     data: "",
+                        //     //把type和level写入，要得到上面获得的recipe_id和对应label的id
+                        //     headers:{
+                        //         'Content-Type' : 'application/x-www-form-urlencoded'
+                        //     }
+                        // }).success(function (data, status, headers, config) {
+                        //     $location.path('/');
+                        // }).error(function (data, status, headers, config) {
+                        //     $scope.message = "register error";
+                        // });
+
+
+
+
+
+
+
+
+
+
+              
                         // $window.location.reload();
-                    })
-                    .error(function (data, status, headers, config) {
-                        $scope.message = "register error";
-                    });
                 };
 
             }

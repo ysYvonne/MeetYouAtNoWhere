@@ -13,7 +13,8 @@ angular
   .module('kitchenSecretApp', [
     'Authentication',
     'ngRoute',
-    'ngCookies'
+    'ngCookies',
+    'ngFileUpload'
   ])
   .config(['$routeProvider', '$locationProvider',  function ($routeProvider, $locationProvider) {
     $routeProvider

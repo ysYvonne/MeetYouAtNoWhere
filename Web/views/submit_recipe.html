@@ -20,12 +20,15 @@
 				<!--content-->
 				<section class="content full-width wow fadeInUp">
 					<div class="submit_recipe container">
-						<form>
+						<form  name="myForm">
 							<section>
 								<h2>封面</h2>
-								<div class="f-row full">
-									<input type="file"/>
-								</div>
+								<input type="file" ngf-select ng-model="picFile" name="file"    
+						             accept="image/*" ngf-max-size="20MB" required
+						             ngf-model-invalid="errorFile">
+						      <i ng-show="myForm.file.$error.maxSize">图片太大
+						          {{errorFile.size / 1000000|number:1}}MB: 最大20Mb</i>
+						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
 							</section>	
 
 							<section>
@@ -90,9 +93,11 @@
 								<div class="f-row full">
 									<button class="add" ng-click="addinstruction()">添加一个步骤</button>
 								</div>
+								{{ingredientlist}}
+								{{instructionlist}}
 							</section>							
 							<div class="f-row full">
-								<input type="submit" class="button" id="submitRecipe" value="发布" />
+								<input type="submit" class="button" id="submitRecipe" value="发布"  ng-click="SubmitRecipe(picFile)" />
 							</div>
 						</form>
 					</div>

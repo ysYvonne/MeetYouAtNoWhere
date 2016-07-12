@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var qt = require('quickthumb');
 var path = require('path');
-
+var multiparty = require('connect-multiparty');
+var mulipartyMiddleware = multiparty();
 var authController = require('./controller/auth');
 var contactController = require('./controller/contact')
 var followController = require('./controller/follow');
@@ -40,6 +41,7 @@ app.use(bodyParser.urlencoded({
 app.use(passport.initialize());
 
 app.use(express.static(path.join(__dirname, 'Web')));
+
 
 var router = express.Router();
 
@@ -93,7 +95,7 @@ router.route('/deleteown')
     .delete(authController.isAuthenticated, ownController.deleteown);
 
 router.route('/recipe')
-    .post(authController.isAuthenticated, recipeController.postRecipes);
+    .post(authController.isAuthenticated,mulipartyMiddleware,recipeController.postRecipes);
 
 router.route('/getrecipe')
     .get(authController.isAuthenticated, recipeController.getRecipe);

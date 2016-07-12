@@ -9,30 +9,11 @@ exports.postRecipes = function (req, res) {
     recipe.name = req.body.name;
     recipe.description = req.body.description;
     recipe.calorie = req.body.calorie;
+    recipe.makeTime = req.body.makeTime;
+    recipe.peopleNum = req.body.peopleNum;
     recipe.meterials = req.body.meterials;
-    recipe.steps = req.body.steps
+    recipe.steps = req.body.steps;
     recipe.userId = req.user._id;
-    //recipe.likeNum = req.body.likeNum;
-    //recipe.favorateNum = req.body.favorateNum;
-
- /*
-    var meterial_str = new String();
-
-    meterial_str = req.body.meterials;
-
-    var meterials = new Array(); //定义一数组 
-
-    meterials=meterial_str.split(","); //字符分割 
-    for (i=0;i<meterials.length ;i++ ) 
-    { 
-        var str = new Array();
-        str = meterials[i].split("#");
-        recipe.meterials[i].name = str[0];
-        recipe.meterials[i].dosage = str[1];
-    } 
-
-*/
-
 
 
     if (!(req.body.picture === undefined)) {
@@ -98,6 +79,8 @@ exports.putRecipe = function (req, res) {
         name : req.body.name,
         description : req.body.description,
         calorie : req.body.calorie,
+        makeTime = req.body.makeTime;
+        peopleNum = req.body.peopleNum;
         meterials: req.body.meterials,
         steps : req.body.steps,
         likeNum : req.body.likeNum,

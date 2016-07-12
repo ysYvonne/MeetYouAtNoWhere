@@ -19,6 +19,14 @@ var RecipeSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    makeTime:{
+        type: Number,
+        required: true
+    },
+    peopleNum:{
+        type: Number,
+        required:true
+    },
     steps: {
         type: String,
         ref:'Step',

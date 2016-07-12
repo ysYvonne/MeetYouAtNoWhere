@@ -7,6 +7,7 @@
 			<!--content-->
 				<section class="content center full-width wow fadeInUp">
 					<div class="modal container">
+					<form name="form" ng-submit="register()" role="form">
 						<h3>注册</h3>
 						<div class="f-row">
 						<!--<input type="text" name="username" id="username" placeholder="用户名" ng-model="username" required />-->
@@ -27,11 +28,7 @@
 						<div class="f-row">
 							<div class="f-row full">
 							<label for="sex">性别：</label>
-									<input type="radio" id="male" name="male"/>
-									<label for="r1">男</label>
-									&nbsp
-									<input type="radio" id="female" name="female"/>
-									<label for="r2">女</label>
+								<select ng-model="sex" ng-options="sex for sex in sexes"></select>
 							</div>
 						</div>
 						<div class="f-row">
@@ -41,6 +38,7 @@
 							<input type="submit" value="注册" />
 						</div>
 						<p>已拥有账号？<a href="/#/login">登录</a></p>
+						</form>
 					</div>
 				</section>
 				<!--//content-->

@@ -13,30 +13,31 @@ angular.module('kitchenSecretApp')
   .controller('RegisterCtrl',  
   	['$scope', '$rootScope', '$location','$http','$window','AuthenticationService',
     	function ($scope, $rootScope, $location, $http,$window, AuthenticationService) {
+            load();
             $scope.newstring={};
             $scope.orignalpic={};
             var imagestring={};
-          $scope.register=function  () {
+            $scope.sexes=["男","女"];
+          $scope.register=function(){
             $http({
                 method: 'POST',
                 url: 'api/users',
                 data:  
                 "nickname="+$scope.nickname+
                 "&password="+$scope.password+
-                //"&sex="+$scope.sex+
+                "&sex="+$scope.sex+
                 "&email="+$scope.email+
-                "&birth="$scope.birth+
-                "&intro="+$scope.intro
-                ,
+                "&birth="+$scope.birth+
+                "&intro="+$scope.intro,
                 headers:{
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).success(function  (data,status,headers,config) {
-                 $location.path('/');
+                 $location.path('/#/login');
                     // $window.location.reload();
             })
             .error(function (data, status, headers, config) {
-                $scope.message='register error';
+                $scope.message="register error";
             });
         };
 

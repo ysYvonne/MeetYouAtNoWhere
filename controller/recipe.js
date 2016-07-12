@@ -79,8 +79,8 @@ exports.putRecipe = function (req, res) {
         name : req.body.name,
         description : req.body.description,
         calorie : req.body.calorie,
-        makeTime = req.body.makeTime;
-        peopleNum = req.body.peopleNum;
+        makeTime = req.body.makeTime,
+        peopleNum = req.body.peopleNum,
         meterials: req.body.meterials,
         steps : req.body.steps,
         likeNum : req.body.likeNum,

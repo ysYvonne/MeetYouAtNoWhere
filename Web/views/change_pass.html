@@ -8,13 +8,13 @@
 					<div class="modal container">
 						<h3>修改密码</h3>
 						<div class="f-row">
-							<input type="password" placeholder="原始密码" />
+							<input type="password" id="old_password" name="old_password" placeholder="原始密码" ng-model="old_password" required/>
 						</div>
 						<div class="f-row">
-							<input type="password" placeholder="密码" />
+							<input type="password" id="new_password" name="new_password" placeholder="密码" ng-model="new_password" required/>
 						</div>
 						<div class="f-row">
-							<input type="password" placeholder="重复密码" />
+							<input type="password" id="new_password1" name="new_password1" placeholder="重复密码" ng-model="new_password1" required/>
 						</div>
 						<div class="f-row bwrap">
 							<input type="submit" value="确认修改" />

@@ -11,16 +11,16 @@
 							<h3>联系我们</h3>
 							<div id="message" class="alert alert-danger"></div>
 							<div class="f-row">
-								<input type="text" placeholder="你的姓名" id="name" />
+								<input type="text" name="name" placeholder="你的姓名" id="name" ng-model="name" required/>
 							</div>
 							<div class="f-row">
-								<input type="email" placeholder="你的邮箱" id="email" />
+								<input type="email" name="email" placeholder="你的邮箱" id="email" ng-model="email" required/>
 							</div>
 							<div class="f-row">
-								<input type="number" placeholder="你的手机号" id="phone" />
+								<input type="number" name="phone" placeholder="你的手机号" id="phone" ng-model="phone" required/>
 							</div>
 							<div class="f-row">
-								<textarea placeholder="来和我们说点什么吧(ﾉ･ω･)ﾉﾞ" id="comments"></textarea>
+								<textarea placeholder="来和我们说点什么吧(ﾉ･ω･)ﾉﾞ" id="comments" name="comments" ng-model="comments" required></textarea>
 							</div>
 							<div class="f-row bwrap">
 								<input type="submit" value="发送信息" />

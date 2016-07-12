@@ -8,18 +8,18 @@
 					<div class="modal container">
 						<h3>修改个人信息</h3>
 						<div class="f-row">
-							<input type="text" placeholder="昵称" />
+							<input type="text" id="nickname" name="nickname" placeholder="昵称" ng-model="nickname" required/>
 						</div>
 						<div class="f-row">
-							<label for="birth">生日：</label><input id="birth" type="date" value="2016-01-01"/>
+							<label for="birth">生日：</label><input id="birth" name="birth" type="date" value="2016-01-01" ng-model="birth" required/>
 						</div>
 						<div class="f-row">
 							<div class="f-row full">
 							<label for="sex">性别：</label>
-									<input type="radio" id="sex1" name="radio"/>
+									<input type="radio" id="male" name="male"/>
 									<label for="r1">男</label>
 									&nbsp
-									<input type="radio" id="sex2" name="radio"/>
+									<input type="radio" id="female" name="female"/>
 									<label for="r2">女</label>
 							</div>
 						</div>

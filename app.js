@@ -6,6 +6,7 @@ var qt = require('quickthumb');
 var path = require('path');
 
 var authController = require('./controller/auth');
+var contactController = require('./controller/contact')
 var followController = require('./controller/follow');
 var labelController = require('./controller/label');
 var likeController = require('./controller/like');
@@ -43,7 +44,14 @@ app.use(express.static(path.join(__dirname, 'Web')));
 var router = express.Router();
 
 
+router.route('/contact')
+    .post(authController.isAuthenticated,contactController.postContacts);
 
+router.route('/getcontacts')
+    .get(authController.isAuthenticated,contactController.getContacts);
+
+router.route('/deletecontact')
+    .delete(authController.isAuthenticated,adminGroup(),contactController.deleteContact);
 
 router.route('/follow')
     .post(authController.isAuthenticated,followController.postFollows);

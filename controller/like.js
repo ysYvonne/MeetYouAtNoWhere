@@ -17,7 +17,7 @@ exports.postLikes = function (req, res) {
 };
 
 exports.getLikes = function (req, res) {
-    like.find({}, function (err, likes) {
+    Like.find({}, function (err, likes) {
         if (err)
             res.status(400).json(err);
         else
@@ -26,7 +26,7 @@ exports.getLikes = function (req, res) {
 };
 
 exports.getLike = function (req, res) {
-    like.find({_id: req.params.like_id}, function (err, like) {
+    Like.find({_id: req.params.like_id}, function (err, like) {
         if (err)
             res.status(400).json(err);
         else if (!like)
@@ -37,7 +37,7 @@ exports.getLike = function (req, res) {
 };
 
 exports.deleteLike = function (req, res) {
-    like.remove({_id: req.params.like_id}, function (err) {
+    Like.remove({_id: req.params.like_id}, function (err) {
         if (err)
             res.status(400).json(err);
         else

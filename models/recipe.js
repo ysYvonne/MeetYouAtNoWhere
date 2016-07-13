@@ -29,8 +29,15 @@ var RecipeSchema = new mongoose.Schema({
     },
     steps: {
         type: String,
-        ref:'Step',
         required: true
+    },
+    level:
+    {
+        type:String,
+    },
+    labels:
+    {
+        type: String,
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,   
@@ -52,6 +59,7 @@ var RecipeSchema = new mongoose.Schema({
         required: true,
         default:0
     }
+
 });
 RecipeSchema.methods.toJSON = function () {
     var obj = this.toObject();

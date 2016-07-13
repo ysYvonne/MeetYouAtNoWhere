@@ -16,28 +16,28 @@ exports.postOwns = function (req, res) {
         });
 };
 
-exports.getowns = function (req, res) {
-    Own.find({}, function (err, Owns) {
+exports.getOwns = function (req, res) {
+    Own.find({}, function (err, owns) {
         if (err)
             res.status(400).json(err);
         else
-            res.status(200).json(Owns);
+            res.status(200).json(owns);
     });
 };
 
-exports.getown = function (req, res) {
-    Own.find({_id: req.params.Own_id}, function (err, Own) {
+exports.getOwn = function (req, res) {
+    Own.find({_id: req.params.own_id}, function (err, own) {
         if (err)
             res.status(400).json(err);
         else if (!own)
             res.status(404).end();
         else
-            res.status(200).json(Own);
+            res.status(200).json(own);
     });
 };
 
-exports.putown = function (req, res) {
-    Own.update({_id: req.params.Own_id}, {
+exports.putOwn = function (req, res) {
+    Own.update({_id: req.params.own_id}, {
         status:req.body.status
     }, function (err, num, raw) {
         if (err)
@@ -47,8 +47,8 @@ exports.putown = function (req, res) {
     });
 };
 
-exports.deleteown = function (req, res) {
-    Own.remove({_id: req.params.Own_id}, function (err) {
+exports.deleteOwn = function (req, res) {
+    Own.remove({_id: req.params.own_id}, function (err) {
         if (err)
             res.status(400).json(err);
         else

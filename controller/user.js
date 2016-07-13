@@ -10,7 +10,6 @@ exports.postUsers = function (req, res) {
         sex: req.body.sex,
         email: req.body.email,
         intro:req.body.intro
-       // admin:req.body.admin
     });
     if (req.body.picture != undefined) {
         var my_chance = new Chance();

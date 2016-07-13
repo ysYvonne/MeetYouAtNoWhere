@@ -44,7 +44,22 @@ angular.module('kitchenSecretApp')
 
             $scope.SubmitRecipe = function (file) {
 
+            var meterials_str = new String();
+            var steps_str = new String();
+            for(var i=0;i<$scope.ingredientlist.length;i++)
+            {
+                meterials_str += $scope.ingredientlist[i].name + "," + $scope.ingredientlist[i].amount ;
+                if(i<length-1)
+                    meterials_str += "#";
+            };
 
+            for(var i=0;i<$scope.instructionlist.length;i++)
+            {
+                steps_str += $scope.instructionlist[i];
+                if(i<length-1)
+                    steps_str += "#";
+            };
+             
 
             file.upload = Upload.upload({
               url: 'api/recipe',
@@ -55,8 +70,12 @@ angular.module('kitchenSecretApp')
                 calorie:$scope.calorie,
                 peopleNum:$scope.peopleNum,
                 description:$scope.description,
+                meterials:meterials_str,
+                steps:steps_str,
+                level:$scope.level,
+                labels:$scope.type,
                 picture: file
-                },
+                }
             });
 
             file.upload.then(function (response) {
@@ -70,10 +89,6 @@ angular.module('kitchenSecretApp')
               // Math.min is to fix IE which reports 200% sometimes
               file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
-
-
-
-
                         // $http({
                         // method : 'POST',
                         //     url: 'api/recipe_Label',
@@ -87,16 +102,6 @@ angular.module('kitchenSecretApp')
                         // }).error(function (data, status, headers, config) {
                         //     $scope.message = "register error";
                         // });
-
-
-
-
-
-
-
-
-
-
               
                         // $window.location.reload();
                 };

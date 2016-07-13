@@ -16,7 +16,7 @@ exports.postFollows = function (req, res) {
 };
 
 exports.getFollows = function (req, res) {
-    follow.find(function (err, follows) {
+    Follow.find(function (err, follows) {
         if (err)
             res.status(400).json(err);
         else
@@ -25,7 +25,7 @@ exports.getFollows = function (req, res) {
 };
 
 exports.getFollow = function (req, res) {
-    follow.find({_id: req.params.follow_id}, function (err, follow) {
+    Follow.find({_id: req.params.follow_id}, function (err, follow) {
         if (err)
             res.status(400).json(err);
         else if (!follow[0])
@@ -36,7 +36,7 @@ exports.getFollow = function (req, res) {
 };
 
 exports.deleteFollow = function (req, res) {
-    follow.remove({_id: req.params.follow_id}, function (err) {
+    Follow.remove({_id: req.params.follow_id}, function (err) {
         if (err)
             res.status(400).json(err);
         else

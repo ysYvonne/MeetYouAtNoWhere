@@ -19,7 +19,7 @@ exports.postContacts = function (req, res) {
 };
 
 exports.getContacts = function (req, res) {
-    contact.find(function (err, contacts) {
+    Contact.find(function (err, contacts) {
         if (err)
             res.status(400).json(err);
         else
@@ -28,7 +28,7 @@ exports.getContacts = function (req, res) {
 };
 
 exports.getContact = function (req, res) {
-    contact.find({_id: req.params.contact_id}, function (err, contact) {
+    Contact.find({_id: req.params.contact_id}, function (err, contact) {
         if (err)
             res.status(400).json(err);
         else if (!contact[0])
@@ -39,7 +39,7 @@ exports.getContact = function (req, res) {
 };
 
 exports.deleteContact = function (req, res) {
-    contact.remove({_id: req.params.contact_id}, function (err) {
+    Contact.remove({_id: req.params.contact_id}, function (err) {
         if (err)
             res.status(400).json(err);
         else

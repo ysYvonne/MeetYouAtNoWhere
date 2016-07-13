@@ -1,5 +1,4 @@
 var Recipe = require('../models/recipe');
-var Step = require('../models/step');
 var Chance = require('chance');
 var fs = require('fs-extra');
 
@@ -13,7 +12,10 @@ exports.postRecipes = function (req, res) {
     recipe.peopleNum = req.body.peopleNum;
     recipe.meterials = req.body.meterials;
     recipe.steps = req.body.steps;
+    recipe.level = req.body.level;
+    recipe.labels = req.body.labels;
     recipe.userId = req.user._id;
+
 
     var file = req.files.picture;
     if (!(req.files.picture === undefined)) {
@@ -48,22 +50,22 @@ exports.postRecipes = function (req, res) {
 };
 
 exports.getRecipes = function (req, res) {
-    Recipe.find({}, function (err, Recipes) {
+    Recipe.find({}, function (err, recipes) {
         if (err)
             res.status(400).json(err);
         else
-            res.status(200).json(Recipes);
+            res.status(200).json(recipes);
     });
 };
 
 exports.getRecipe = function (req, res) {
-    Recipe.find({_id: req.params.Recipe_id}, function (err, Recipe) {
+    Recipe.find({_id: req.params.recipe_id}, function (err, recipe) {
         if (err)
             res.status(400).json(err);
-        else if (!Recipe)
+        else if (!recipe)
             res.status(404).end();
         else
-            res.status(200).json(Recipe);
+            res.status(200).json(recipe);
     });
 };
 
@@ -78,7 +80,7 @@ exports.putRecipe = function (req, res) {
                 res.status(400).json(err);
         });
     };
-    Recipe.update({_id: req.params.Recipe_id}, {
+    Recipe.update({_id: req.params.recipe_id}, {
         name : req.body.name,
         description : req.body.description,
         calorie : req.body.calorie,
@@ -86,6 +88,8 @@ exports.putRecipe = function (req, res) {
         peopleNum : req.body.peopleNum,
         meterials: req.body.meterials,
         steps : req.body.steps,
+        labels:req.body.labels,
+        level :req.body.level,
         likeNum : req.body.likeNum,
         favorateNum : req.body.favorateNum,
         photo:photo
@@ -98,7 +102,7 @@ exports.putRecipe = function (req, res) {
 };
 
 exports.deleteRecipe = function (req, res) {
-    Recipe.remove({_id: req.params.Recipe_id}, function (err) {
+    Recipe.remove({_id: req.params.recipe_id}, function (err) {
         if (err)
             res.status(400).json(err);
         else

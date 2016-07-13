@@ -9,14 +9,10 @@ var mulipartyMiddleware = multiparty();
 var authController = require('./controller/auth');
 var contactController = require('./controller/contact')
 var followController = require('./controller/follow');
-var labelController = require('./controller/label');
 var likeController = require('./controller/like');
 var ownController = require('./controller/own');
 var recipeController = require('./controller/recipe');
-var recipe_LabelController = require('./controller/recipe_Label');
-var stepController = require('./controller/step');
 var userController = require('./controller/user');
-var user_LabelController = require('./controller/user_Label');
 
 var adminGroup = function () {
     return function (req, res, next) {
@@ -64,15 +60,6 @@ router.route('/getfollows')
 router.route('/deletefollow')
     .delete(authController.isAuthenticated,followController.deleteFollow);
 
-router.route('/label')
-    .post(labelController.postLabels);
-
-router.route('/getlabels')
-    .get(authController.isAuthenticated,labelController.getLabels);
-
-router.route('/deletelabel')
-    .delete(authController.isAuthenticated,labelController.deleteLabel );
-
 router.route('/like')
     .post(authController.isAuthenticated, likeController.postLikes);
 
@@ -86,13 +73,13 @@ router.route('/own')
     .post(authController.isAuthenticated, ownController.postOwns);
 
 router.route('/putown')
-    .put(authController.isAuthenticated, adminGroup(), ownController.putown);
+    .put(authController.isAuthenticated, adminGroup(), ownController.putOwn);
 
 router.route('/getowns')
-    .get(authController.isAuthenticated, ownController.getowns);
+    .get(authController.isAuthenticated, ownController.getOwns);
 
 router.route('/deleteown')
-    .delete(authController.isAuthenticated, ownController.deleteown);
+    .delete(authController.isAuthenticated, ownController.deleteOwn);
 
 router.route('/recipe')
     .post(authController.isAuthenticated,mulipartyMiddleware,recipeController.postRecipes);
@@ -109,27 +96,6 @@ router.route('/putrecipe')
 router.route('/deleterecipe')
     .delete(authController.isAuthenticated, recipeController.deleteRecipe);
 
-router.route('/recipe_Label')
-    .post(authController.isAuthenticated, recipe_LabelController.postRecipe_Labels);
-
-router.route('/getrecipe_Labels')
-    .get(authController.isAuthenticated, recipe_LabelController.getrecipe_Labels);
-
-router.route('/deleterecipe_Labels')
-    .delete(authController.isAuthenticated, recipe_LabelController.deleterecipe_Label);    
-
-router.route('/step')
-    .post(authController.isAuthenticated, stepController.postSteps);    
-
-router.route('/getsteps')
-    .get(authController.isAuthenticated, stepController.getSteps);  
-
-router.route('/putsteps')
-    .put(authController.isAuthenticated, stepController.putSteps);  
-
-router.route('/deletesteps')
-    .delete(authController.isAuthenticated, stepController.deleteStep);  
-
 router.route('/login')
     .post(authController.isAuthenticated,userController.login);
 
@@ -144,15 +110,6 @@ router.route('/users/:user_id')
 
 router.route('/users/:user_id/profile')
     .put(authController.isAuthenticated,userController.putUserInfo);
-
-router.route('/user_Labels')
-    .post(authController.isAuthenticated, user_LabelController.postUser_Labels);
-
-router.route('/getuser_Labels')
-    .get(authController.isAuthenticated, user_LabelController.getuser_Labels);
-
-router.route('/deleteuser_Label')
-    .delete(authController.isAuthenticated, user_LabelController.deleteuser_Label);   
 
 app.use('/api', router);
 

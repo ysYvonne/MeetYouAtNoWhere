@@ -29,6 +29,8 @@ var app = express();
 // app.use(qt.static(__dirname + '/'));
 mongoose.connect('120.27.95.40:27017');
 
+app.use(bodyParser({uploadDir:'./uploads'}));
+
 app.use(bodyParser.urlencoded({
     extended: true,
     limit: '50mb'
@@ -38,6 +40,7 @@ app.use(passport.initialize());
 
 app.use(express.static(path.join(__dirname, 'Web')));
 
+app.use(express.static(path.join(__dirname, 'uploads')));
 
 var router = express.Router();
 

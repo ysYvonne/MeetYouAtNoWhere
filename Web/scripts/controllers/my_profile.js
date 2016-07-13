@@ -10,11 +10,13 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('MyProfileCtrl', function ($scope) {
+  .controller('MyProfileCtrl', function ($scope,$http,$window) {
     load();
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+
+     $scope.userid=$window.sessionStorage['userid'];
+     $http.get('api/users/'+$scope.userid)
+     .success(function  (data) {
+     $scope.awesomeThings=data;
+     });
+
   });

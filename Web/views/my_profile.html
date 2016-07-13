@@ -22,7 +22,7 @@
 							<img src="images/avatar.jpg" alt="" />
 						</figure>
 						<div class="container">
-							<h2>王爸爸</h2> 
+							<h2>{{awesomeThings[0].nickname}}</h2> 
 						</div>
 								<div class="f-row full">
 									<input type="file"/>
@@ -45,15 +45,15 @@
 							<div class="row">
 								<dl class="basic two-third">
 									<dt>昵称</dt>
-									<dd>王爸爸</dd>
+									<dd>{{awesomeThings[0].nickname}}</dd>
 									<dt>性别</dt>
-									<dd>男</dd>
+									<dd>{{awesomeThings[0].sex}}</dd>
 									<dt>生日</dt>
-									<dd>2016－01－01</dd>
+									<dd>{{awesomeThings[0].birth.split("T")[0]}}</dd>
 									<dt>邮箱</dt>
-									<dd>1234567@qq.com</dd>
+									<dd>{{awesomeThings[0].email}}</dd>
 									<dt>个性签名</dt>
-									<dd>我是要成为海贼王的男人 (,,• ₃ •,,)</dd>
+									<dd>{{awesomeThings[0].intro}}</dd>
 									<dt>食谱数</dt>
 									<dd>9</dd>
 								</dl>

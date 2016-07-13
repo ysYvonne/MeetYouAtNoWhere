@@ -16,10 +16,8 @@ exports.postRecipes = function (req, res) {
     recipe.labels = req.body.labels;
     recipe.userId = req.user._id;
 
-<<<<<<< HEAD
-
     var file = req.files.picture;
-=======
+
     // for (var i in req.files) {
     //     if(req.files[i].size==0){
     //         fs.unlinkSync(req.files[i].path);        
@@ -29,7 +27,6 @@ exports.postRecipes = function (req, res) {
     //     }
 
     // }
->>>>>>> origin/master
     if (!(req.files.picture === undefined)) {
 
         var my_chance = new Chance();

@@ -10,11 +10,15 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('RecipesCtrl', function ($scope) {
+  .controller('RecipesCtrl', function ($scope,$http) {
     load();
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $('.scroll-to-top').click(function () {
+        $('body,html').animate({
+            scrollTop : 0
+        }, 800);
+        return false;
+    });
+    $http.get('api/getrecipes').success(function  (data) {
+     	$scope.recipelist=data;
+  	});
   });

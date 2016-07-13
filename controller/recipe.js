@@ -3,7 +3,7 @@ var Chance = require('chance');
 var fs = require('fs-extra');
 
 exports.postRecipes = function (req, res) {
-
+    console.log(req.body);
     var recipe = new Recipe();
     recipe.name = req.body.name;
     recipe.description = req.body.description;

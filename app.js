@@ -87,7 +87,7 @@ router.route('/deleteown')
 router.route('/recipe')
     .post(authController.isAuthenticated,mulipartyMiddleware,recipeController.postRecipes);
 
-router.route('/getrecipe')
+router.route('/getrecipe/:recipe_id')
     .get(authController.isAuthenticated, recipeController.getRecipe);
 
 router.route('/getrecipes')

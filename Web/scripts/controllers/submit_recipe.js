@@ -17,9 +17,10 @@ angular.module('kitchenSecretApp')
             $scope.newstring = {};
             $scope.orignalpic = {};
             var imagestring = {};
-
-
-
+            $scope.levels=["难度","简单","中等","困难"];
+            $scope.types=["选择一个分类","主食","甜点","饮料","小吃","西餐","海鲜"];
+            $scope.level=$scope.levels[0];
+            $scope.type=$scope.types[0]
             $scope.ingredientlist=[{name:"",amount:""}];
 
             $scope.addingredient=function(){
@@ -44,21 +45,21 @@ angular.module('kitchenSecretApp')
 
             $scope.SubmitRecipe = function (file) {
 
-            var meterials_str = new String();
-            var steps_str = new String();
-            for(var i=0;i<$scope.ingredientlist.length;i++)
-            {
-                meterials_str += $scope.ingredientlist[i].name + "," + $scope.ingredientlist[i].amount ;
-                if(i<length-1)
-                    meterials_str += "#";
-            };
+            // var meterials_str = new String();
+            // var steps_str = new String();
+            // for(var i=0;i<$scope.ingredientlist.length;i++)
+            // {
+            //     meterials_str += $scope.ingredientlist[i].name + "," + $scope.ingredientlist[i].amount ;
+            //     if(i<length-1)
+            //         meterials_str += "#";
+            // };
 
-            for(var i=0;i<$scope.instructionlist.length;i++)
-            {
-                steps_str += $scope.instructionlist[i];
-                if(i<length-1)
-                    steps_str += "#";
-            };
+            // for(var i=0;i<$scope.instructionlist.length;i++)
+            // {
+            //     steps_str += $scope.instructionlist[i];
+            //     if(i<length-1)
+            //         steps_str += "#";
+            // };
              
 
             file.upload = Upload.upload({
@@ -70,8 +71,8 @@ angular.module('kitchenSecretApp')
                 calorie:$scope.calorie,
                 peopleNum:$scope.peopleNum,
                 description:$scope.description,
-                meterials:meterials_str,
-                steps:steps_str,
+                meterials:angular.toJson($scope.ingredientlist),
+                steps:angular.toJson($scope.instructionlist),
                 level:$scope.level,
                 labels:$scope.type,
                 picture: file
@@ -81,6 +82,8 @@ angular.module('kitchenSecretApp')
             file.upload.then(function (response) {
               $timeout(function () {
                 file.result = response.data;
+                console.log(response.data);
+                $location.path('/recipes');
               });
             }, function (response) {
               if (response.status > 0)

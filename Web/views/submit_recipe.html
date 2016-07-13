@@ -28,7 +28,7 @@
 						             ngf-model-invalid="errorFile">
 						      <i ng-show="myForm.file.$error.maxSize">图片太大
 						          {{errorFile.size / 1000000|number:1}}MB: 最大20Mb</i>
-						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">移除图片</button>
 							</section>	
 
 							<section>
@@ -44,22 +44,11 @@
 								</div>
 								<div class="f-row">		
 									<div class="third">
-										<select>
-											<option ng-model="level" selected="selected">    难度    </option>
-                                            <option>简单</option>
-                                            <option>中等</option>
-                                            <option>困难</option>
+										<select ng-model="level" ng-options="level for level in levels">
 										</select>
 									</div>
 									<div class="third">
-										<select>
-											<option ng-model="type" selected="selected">选择一个分类</option>
-                                            <option>主食</option>
-                                            <option>甜点</option>
-                                            <option>饮料</option>
-                                            <option>小吃</option>
-                                            <option>西餐</option>
-                                            <option>海鲜</option>
+										<select ng-model="type" ng-options="type for type in types">
 										</select>
 									</div>
 								</div>
@@ -93,8 +82,6 @@
 								<div class="f-row full">
 									<button class="add" ng-click="addinstruction()">添加一个步骤</button>
 								</div>
-								{{ingredientlist}}
-								{{instructionlist}}
 							</section>							
 							<div class="f-row full">
 								<input type="submit" class="button" id="submitRecipe" value="发布"  ng-click="SubmitRecipe(picFile)" />

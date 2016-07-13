@@ -12,11 +12,10 @@
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
-			
 			<!--row-->
 			<div class="row">
 				<header class="s-title wow fadeInLeft">
-					<h1>黑白巧克力杯蛋糕</h1>
+					<h1>{{recipe.name}}</h1>
 				</header>
 				<!--content-->
 				<section class="content three-fourth">
@@ -25,13 +24,11 @@
 						<div class="recipe">
 							<!--two-third-->
 							<article class="two-third wow fadeInLeft">
-								<div class="image"><a href="#"><img src="images/img.jpg" alt="" /></a></div>
-								<div class="intro"><p><strong>菜品简介</strong></p> <p>菜品简介</p></div>
+								<div class="image"><a href="#"><img ng-src="{{recipe.photo}}" alt="" /></a></div>
+								<div class="intro"><p><strong>菜品简介</strong></p> <p>{{recipe.description}}</p></div>
 								<div class="instructions">
 									<ol>
-										<li>第一步blablablablabla</li>
-										<li>第二步blablablablabla</li>
-										<li>第三步blablablablabla</li>
+										<li ng-repeat="step in steps">{{step.detail}}</li>
 									</ol>
 								</div>
 							</article>
@@ -44,36 +41,23 @@
 									<dd>15 分钟</dd>
 									<dt>制作时间</dt>
 									<dd>30 分钟</dd>
-									<dt>难以程度</dt>
-									<dd>简单</dd>
+									<dt>难度</dt>
+									<dd>{{recipe.level}}</dd>
 									<dt>适宜人数</dt>
-									<dd>4 人</dd>
+									<dd>{{recipe.peopleNum}} 人</dd>
 								</dl>
 								
 								<dl class="user">
 									<dt>类别</dt>
-									<dd>甜点</dd>
+									<dd>{{recipe.labels}}</dd>
 									<dt>发布者</dt>
-									<dd>皮卡丘</dd>
+									<dd>{{author.nickname}}</dd>
 								</dl>
 								
-								<dl class="ingredients">
-									<dt>300g</dt>
-									<dd>面粉</dd>
-									<dt>200g</dt>
-									<dd>黄油</dd>
-									<dt>200g</dt>
-									<dd>白巧克力</dd>
-									<dt>2个</dt>
-									<dd>鸡蛋</dd>
-									<dt>1勺</dt>
-									<dd>特制油</dd>
-									<dt>200 g</dt>
-									<dd>红糖</dd>
-									<dt>100 ml</dt>
-									<dd>奶油</dd>
-									<dt>少量</dt>
-									<dd>糖屑</dd>
+								<dl class="ingredients" ng-repeat="meterial in meterials">
+				
+									<dt>{{meterial.amount}}</dt>
+									<dd>{{meterial.name}}</dd>
 								</dl>
 							</article>
 							<!--//one-third-->

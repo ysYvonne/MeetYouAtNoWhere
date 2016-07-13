@@ -10,11 +10,14 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('RecipeCtrl', function ($scope) {
+  .controller('RecipeCtrl', function ($scope,$http,$routeParams,$location) {
     load();
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+	$http.get('api/getrecipe/'+$routeParams.id).success(function  (data) {
+	     $scope.recipe=data[0];
+	     $scope.steps=angular.fromJson(data[0].steps);
+	     $scope.meterials=angular.fromJson(data[0].meterials);
+	     $http.get('api/users/'+data[0].userId).success(function  (data1) {
+     		$scope.author=data1[0];
+  		});
+	});
   });

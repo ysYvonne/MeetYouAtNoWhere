@@ -15,27 +15,36 @@ exports.postRecipes = function (req, res) {
     recipe.steps = req.body.steps;
     recipe.userId = req.user._id;
 
-    var file = req.files.picture;
+    // for (var i in req.files) {
+    //     if(req.files[i].size==0){
+    //         fs.unlinkSync(req.files[i].path);        
+    //     }else{
+    //         var target_path='./uploads/'+req.files[i].name;
+    //         fs.renameSync(req.files[i].path, target_path);
+    //     }
+
+    // }
     if (!(req.files.picture === undefined)) {
 
         var my_chance = new Chance();
         var guid = my_chance.guid();
         var type=req.files.picture.type.split('/')[1];
-        recipe.photo = "uploads/" + guid + "."+type;
-        console.log(recipe.photo);
+        recipe.photo = guid + "."+type;
+        // console.log(recipe.photo);
         // var base64Data = req.files.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile(recipe.photo, file, 'base64' ,function (err) {
-            if (err)
-                res.status(400).json(err);
-            else {
+        fs.renameSync(req.files.picture.path, "./uploads/"+recipe.photo);
+        // fs.writeFile(recipe.photo, file, 'base64' ,function (err) {
+            // if (err)
+            //     res.status(400).json(err);
+            // else {
                 recipe.save(function (err) {
                     if (err)
                         res.status(400).json(err);
                     else
                         res.status(201).json(recipe);
                 });
-            }
-        });
+        //     }
+        // });
     }
     else {
         recipe.save(function (err) {
@@ -45,6 +54,7 @@ exports.postRecipes = function (req, res) {
                 res.status(201).json(recipe);
         });
     }
+        // }
 };
 
 exports.getRecipes = function (req, res) {

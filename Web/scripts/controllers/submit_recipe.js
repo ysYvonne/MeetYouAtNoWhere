@@ -32,10 +32,10 @@ angular.module('kitchenSecretApp')
                 $scope.ingredientlist.splice(idx,1);
             };
 
-            $scope.instructionlist=[{detail:"第1步:"}];
+            $scope.instructionlist=[{detail:""}];
 
             $scope.addinstruction=function(){
-                var obj={detail:"第"+($scope.instructionlist.length+1)+"步:"};
+                var obj={detail:""};
                 $scope.instructionlist.push(obj);
             };
 

@@ -76,7 +76,7 @@
 							<section>
 								<h2>步骤 <span>(添加步骤，每次只能添加一步)</span></h2>
 								<div class="f-row instruction" ng-repeat="instruction in instructionlist">
-									<div class="full"><input type="text" placeholder="步骤" ng-model="instruction.detail"/></div>
+									<div class="full"><input type="text" placeholder="第{{$index+1}}步" ng-model="instruction.detail"/></div>
 									<button class="remove" ng-show="$index!=0" ng-click="delinstruction($index)">-</button>
 								</div>
 								<div class="f-row full">

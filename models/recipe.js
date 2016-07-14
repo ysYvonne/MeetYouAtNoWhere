@@ -16,15 +16,15 @@ var RecipeSchema = new mongoose.Schema({
         required: true
     },
     calorie: {
-        type: Number,
+        type: String,
         required: true
     },
     makeTime:{
-        type: Number,
+        type: String,
         required: true
     },
     peopleNum:{
-        type: Number,
+        type: String,
         required:true
     },
     steps: {

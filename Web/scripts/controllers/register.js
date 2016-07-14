@@ -18,12 +18,20 @@ angular.module('kitchenSecretApp')
             $scope.orignalpic = {};
             var imagestring = {};
             $scope.sexes = ["男", "女"];
+
+            $scope.$watch('email', function () {
+                $scope.test1();
+            });
+
             $scope.$watch('password', function () {
                 $scope.test();
             });
             $scope.$watch('password1', function () {
                 $scope.test();
             });
+
+
+
             $scope.test = function () {
                 if ($scope.password1 !== $scope.password) {
                     $scope.err = true;
@@ -31,10 +39,30 @@ angular.module('kitchenSecretApp')
                     $scope.err = false;
                 }
             };
+
+            $scope.test1 = function () {
+
+                $scope.err1 = false;
+
+                $http.get('api/users/')
+                 .success(function  (data) {
+                    for(var i = 0; i < data.length; i++){
+                        if(data[i].email === $scope.email){
+                        console.log(data[i].email);
+                        $scope.err1 = true;
+                       }
+                   }
+                });                  
+            };
+
             $scope.register = function () {
                 if ($scope.err) {
                     $scope.message = "密码不一致";
-                } else {
+                }
+                else if($scope.err1){
+                    $scope.message = "该邮箱已被注册"
+                } 
+                else {
                     $http({
                         method : 'POST',
                         url : 'api/users',

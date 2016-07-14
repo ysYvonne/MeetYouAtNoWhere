@@ -81,16 +81,15 @@ exports.getRecipe = function (req, res) {
 };
 
 exports.putRecipe = function (req, res) {
-    if (!(req.body.picture === undefined)) {
+     if (!(req.files.picture === undefined)) {
+
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        var photo ="uploads/" + guid + ".png";
-        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
-            if (err)
-                res.status(400).json(err);
-        });
-    };
+        var type=req.files.picture.type.split('/')[1];
+        var photo = guid + "."+type;
+        fs.renameSync(req.files.picture.path, "./uploads/"+photo);
+   
+    }
     Recipe.update({_id: req.params.recipe_id}, {
         name : req.body.name,
         description : req.body.description,
@@ -101,8 +100,6 @@ exports.putRecipe = function (req, res) {
         steps : req.body.steps,
         labels:req.body.labels,
         level :req.body.level,
-        likeNum : req.body.likeNum,
-        favorateNum : req.body.favorateNum,
         photo:photo
     },function (err, num, raw) {
         if (err)

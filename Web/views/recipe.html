@@ -37,14 +37,12 @@
 							<!--one-third-->
 							<article class="one-third wow fadeInDown">
 								<dl class="basic">
-									<dt>准备时间</dt>
-									<dd>15 分钟</dd>
 									<dt>制作时间</dt>
-									<dd>30 分钟</dd>
+									<dd>{{recipe.makeTime}}</dd>
 									<dt>难度</dt>
 									<dd>{{recipe.level}}</dd>
 									<dt>适宜人数</dt>
-									<dd>{{recipe.peopleNum}} 人</dd>
+									<dd>{{recipe.peopleNum}} </dd>
 								</dl>
 								
 								<dl class="user">
@@ -172,13 +170,21 @@
 				<!--right sidebar-->
 				<aside class="sidebar one-fourth wow fadeInRight">
 					<div class="widget nutrition">
-						<h3>营养成分 <span>(每份)</span></h3>
-						<table>
+						<!-- <h3>营养成分 <span>(每份)</span></h3> -->
+
+					<div class="widget members">
+						<h3>菜谱分享者</h3>
+						<figure>
+							<img src="images/avatar.jpg" alt="" />
+						</figure>
+					</div>
+
+					<table>
 							<tr>
 								<td>卡路里 </td>
 								<td>{{recipe.calorie}}</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<td>蛋白质</td>
 								<td>59g</td>
 							</tr>
@@ -205,10 +211,10 @@
 							<tr>
 								<td>盐分</td>
 								<td>0.51g</td>
-							</tr>
+							</tr> -->
 						</table>
 					</div>
-					
+
 					<div class="widget share">
 						<ul class="boxed">
 							<li class="light"><a href="#" title="Facebook"><i class="ico i-facebook"></i> <span>分享链接</span></a></li>
@@ -217,12 +223,7 @@
 						</ul>
 					</div>
 					
-					<div class="widget members">
-						<h3>菜谱分享者</h3>
-						<figure>
-							<img src="images/avatar.jpg" alt="" />
-						</figure>
-					</div>
+					
 				</aside>
 				<!--//right sidebar-->
 			</div>

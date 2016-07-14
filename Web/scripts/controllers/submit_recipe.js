@@ -18,7 +18,7 @@ angular.module('kitchenSecretApp')
             $scope.orignalpic = {};
             var imagestring = {};
             $scope.levels=["难度","简单","中等","困难"];
-            $scope.types=["选择一个分类","主食","甜点","饮料","小吃","西餐","海鲜"];
+            $scope.types=["选择一个分类","主食","菜品","粥类","甜点","饮料","小吃","西餐","海鲜"];
             $scope.level=$scope.levels[0];
             $scope.type=$scope.types[0]
             $scope.ingredientlist=[{name:"",amount:""}];

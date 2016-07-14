@@ -11,32 +11,13 @@ exports.postUsers = function (req, res) {
         email: req.body.email,
         intro:req.body.intro
     });
-    if (req.body.picture != undefined) {
-        var my_chance = new Chance();
-        var guid = my_chance.guid();
-        user.photo = "app/uploads/" + guid + ".png";
-        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile('app/uploads/' + guid + '.png', base64Data, 'base64', function (err) {
-            if (err)
-                res.status(400).json(err);
-            else {
-                user.save(function (err) {
-                    if (err)
-                        res.status(400).json(err);
-                    else
-                        res.status(201).json(user);
-                });
-            }
-        });
-    }
-    else {
-        user.save(function (err) {
-            if (err)
-                res.status(400).json(err);
-            else
-                res.status(201).json(user);
-        });
-    }
+    
+    user.save(function (err) {
+        if (err)
+            res.status(400).json(err);
+        else
+             res.status(201).json(user);
+    });
 };
 
 exports.login = function (req, res) {
@@ -78,24 +59,35 @@ exports.putUserPassword = function (req, res) {
             res.status(204).end();
     });
 };
-exports.putUserInfo = function (req, res) {
-    if (!(req.body.picture === undefined)) {
+exports.putUserPhoto= function (req, res) {
+    if (!(req.files.picture === undefined)) {
+
         var my_chance = new Chance();
         var guid = my_chance.guid();
-        var photo = "uploads/" + guid + ".png";
-        var base64Data = req.body.picture.replace(/^data:image\/png;base64,/, "");
-        fs.writeFile('uploads/' + guid + '.png', base64Data, 'base64', function (err) {
-            if (err)
-                res.status(400).json(err);
-       });
+        var type=req.files.picture.type.split('/')[1];
+        var photo = guid + "."+type;
+        fs.renameSync(req.files.picture.path, "./uploads/"+photo);
+   
     }
+
+    User.update({_id: req.user._id}, {
+        photo:photo
+        }, function (err, num, raw) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(204).end();
+    });
+};
+
+exports.putUserInfo = function (req, res) {
+
     User.update({_id: req.user._id}, {
         nickname: req.body.nickname,
         birth:new Date(req.body.birth),
         sex: req.body.sex,
         email: req.body.email,
         intro:req.body.intro,
-        photo:photo
         }, function (err, num, raw) {
         if (err)
             res.status(400).json(err);

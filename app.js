@@ -114,6 +114,10 @@ router.route('/users/:user_id')
 router.route('/users/:user_id/profile')
     .put(authController.isAuthenticated,userController.putUserInfo);
 
+router.route('/users/:user_id/photo')
+    .put(authController.isAuthenticated,userController.putUserPhoto);
+
+
 app.use('/api', router);
 
 app.listen(port);

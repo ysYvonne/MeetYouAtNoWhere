@@ -62,6 +62,7 @@ angular.module('kitchenSecretApp')
                 }
             });
 
+             var recipe_id;
             // file.upload.then(function (response) {
             //   $timeout(function () {
             //    recipe_id= response.data[0]._id;
@@ -72,6 +73,7 @@ angular.module('kitchenSecretApp')
             file.upload.then(function (response) {
               $timeout(function () {
                 file.result = response.data;
+                recipe_id = data[0]._id;
                 console.log(response.data);
                 $location.path('/recipes');
               });
@@ -83,7 +85,18 @@ angular.module('kitchenSecretApp')
               file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
 
+            $scope.userid=$window.sessionStorage['userid'];
 
+            $http({
+                method : 'POST',
+                url : 'api/own',
+                data :
+                "recipeId=" + recipe_id +
+                "&userId="+ $scope.userid,
+                headers : {
+                    'Content-Type' : 'application/x-www-form-urlencoded'
+                }
+            });
          };
 
     }

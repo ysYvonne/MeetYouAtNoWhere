@@ -10,7 +10,7 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('MyProfileCtrl', function ($scope,$http,$window) {
+  .controller('MyProfileCtrl',function ($scope,$http,$window,AuthenticationService ,Upload, $timeout) {
     load();
 
      $scope.userid=$window.sessionStorage['userid'];
@@ -19,7 +19,7 @@ angular.module('kitchenSecretApp')
      $scope.awesomeThings=data;
      // if(awesomeThings[0].photo === null)
      // 	awesomeThings[0].photo="images/avatar.jpg";
-     // });
+     });
 
      $scope.SubmitPhoto = function (file) {
 

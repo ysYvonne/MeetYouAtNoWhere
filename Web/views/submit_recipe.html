@@ -28,7 +28,7 @@
 						             ngf-model-invalid="errorFile">
 						      <i ng-show="myForm.file.$error.maxSize">图片太大
 						          {{errorFile.size / 1000000|number:1}}MB: 最大20Mb</i>
-						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">移除图片</button>
+						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile" 移除图片</button>
 							</section>	
 
 							<section>

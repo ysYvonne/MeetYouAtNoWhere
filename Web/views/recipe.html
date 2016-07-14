@@ -48,8 +48,9 @@
 								<dl class="user">
 									<dt>类别</dt>
 									<dd>{{recipe.labels}}</dd>
-									<dt>发布者</dt>
-									<dd>{{author.nickname}}</dd>
+								    <dt>卡路里 </dt>
+								    <dd>{{recipe.calorie}}</dd>
+
 								</dl>
 								
 								<dl class="ingredients" ng-repeat="meterial in meterials">
@@ -61,7 +62,8 @@
 							<!--//one-third-->
 						</div>
 						<!--//recipe-->
-							
+																<dt>发布者</dt>
+									<dd></dd>
 						<!--comments-->
 						<div class="comments wow fadeInUp" id="comments">
 							<h2>5条评论 </h2>
@@ -169,51 +171,17 @@
 				
 				<!--right sidebar-->
 				<aside class="sidebar one-fourth wow fadeInRight">
-					<div class="widget nutrition">
-						<!-- <h3>营养成分 <span>(每份)</span></h3> -->
 
 					<div class="widget members">
 						<h3>菜谱分享者</h3>
 						<figure>
 							<img src="images/avatar.jpg" alt="" />
 						</figure>
+						<h3>{{author.nickname}}</h3>
 					</div>
 
-					<table>
-							<tr>
-								<td>卡路里 </td>
-								<td>{{recipe.calorie}}</td>
-							</tr>
-							<!-- <tr>
-								<td>蛋白质</td>
-								<td>59g</td>
-							</tr>
-							<tr>
-								<td>碳水化合物</td>
-								<td>59g</td>
-							</tr>
-							<tr>
-								<td>饱和脂肪酸</td>
-								<td>29g</td>
-							</tr>
-							<tr>
-								<td>不饱和脂肪酸</td>
-								<td>17g</td>
-							</tr>
-							<tr>
-								<td>纤维素</td>
-								<td>2g</td>
-							</tr>
-							<tr>
-								<td>糖分</td>
-								<td>44g</td>
-							</tr>
-							<tr>
-								<td>盐分</td>
-								<td>0.51g</td>
-							</tr> -->
-						</table>
-					</div>
+					
+
 
 					<div class="widget share">
 						<ul class="boxed">

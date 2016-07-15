@@ -6,29 +6,31 @@
 			<!--content-->
 				<section class="content center full-width wow fadeInUp">
 					<div class="modal container">
+					<form name="form" ng-submit="changeInfo()" role="form">
 						<h3>修改个人信息</h3>
 						<div class="f-row">
 							<input type="text" id="nickname" name="nickname" placeholder="昵称" ng-model="nickname" required/>
 						</div>
+
 						<div class="f-row">
-							<label for="birth">生日：</label><input id="birth" name="birth" type="date" value="2016-01-01" ng-model="birth" required/>
+							<label for="birth">生日：</label><input name="birth" id="birth" type="date" value="2016-01-01" ng-model="birth" required/>
 						</div>
+
 						<div class="f-row">
 							<div class="f-row full">
 							<label for="sex">性别：</label>
-									<input type="radio" id="male" name="male"/>
-									<label for="r1">男</label>
-									&nbsp
-									<input type="radio" id="female" name="female"/>
-									<label for="r2">女</label>
+								<select ng-model="sex" ng-options="sex for sex in sexes"></select>
 							</div>
 						</div>
+
 						<div class="f-row">
-							<input type="text" placeholder="来一段个性签名吧 o(*≧▽≦)ツ" />
+							<input type="text" name="intro" id="intro" placeholder="来一段个性签名吧 o(*≧▽≦)ツ" ng-model="intro" required/>
 						</div>
+
 						<div class="f-row bwrap">
 							<input type="submit" value="确认修改" />
 						</div>
+					</form>
 					</div>
 				</section>
 				<!--//content-->

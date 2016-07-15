@@ -86,7 +86,6 @@ exports.putUserInfo = function (req, res) {
         nickname: req.body.nickname,
         birth:new Date(req.body.birth),
         sex: req.body.sex,
-        email: req.body.email,
         intro:req.body.intro,
         }, function (err, num, raw) {
         if (err)

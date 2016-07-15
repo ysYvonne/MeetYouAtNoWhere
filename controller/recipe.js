@@ -3,7 +3,6 @@ var Chance = require('chance');
 var fs = require('fs-extra');
 
 exports.postRecipes = function (req, res) {
-    console.log(req.body);
     var recipe = new Recipe();
     recipe.name = req.body.name;
     recipe.description = req.body.description;
@@ -15,7 +14,6 @@ exports.postRecipes = function (req, res) {
     recipe.level = req.body.level;
     recipe.labels = req.body.labels;
     recipe.userId = req.user._id;
-
     var file = req.files.picture;
 
     // for (var i in req.files) {

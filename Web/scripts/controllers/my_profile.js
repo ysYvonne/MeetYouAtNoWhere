@@ -10,7 +10,9 @@
     new WOW().init();
  };
 angular.module('kitchenSecretApp')
-  .controller('MyProfileCtrl',function ($scope,$http,$window,AuthenticationService ,Upload, $timeout) {
+  .controller('MyProfileCtrl',
+    ['$scope','$location','$http','Upload','$window','$timeout',
+    function ($scope,$location,$http,Upload,$window,$timeout) {
     load();
 
      $scope.userid=$window.sessionStorage['userid'];
@@ -22,7 +24,7 @@ angular.module('kitchenSecretApp')
      });
 
      $scope.SubmitPhoto = function (file) {
-
+            console.log(file);
             file.upload = Upload.upload({
               url: 'api/users/'+$scope.userid+"/photo",
               method:'PUT',
@@ -32,10 +34,12 @@ angular.module('kitchenSecretApp')
             });
 
             file.upload.then(function (response) {
+              console.log(response);
               $timeout(function () {
                 file.result = response.data;
                 console.log(response.data);
-                $location.path('/recipes');
+                $location.path('/my_profile');
+                $window.location.reload();
               });
             }, function (response) {
               if (response.status > 0)
@@ -46,4 +50,4 @@ angular.module('kitchenSecretApp')
             });
             };
             
-  });
+  }]);

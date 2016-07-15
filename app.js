@@ -115,7 +115,7 @@ router.route('/users/:user_id/profile')
     .put(authController.isAuthenticated,userController.putUserInfo);
 
 router.route('/users/:user_id/photo')
-    .put(authController.isAuthenticated,userController.putUserPhoto);
+    .put(authController.isAuthenticated,mulipartyMiddleware,userController.putUserPhoto);
 
 
 app.use('/api', router);

@@ -72,6 +72,7 @@ router.route('/deletelike')
     .delete(authController.isAuthenticated,likeController.deleteLike );
 
 router.route('/recipe')
+    .get(recipeController.getRecipes)
     .post(authController.isAuthenticated,mulipartyMiddleware,recipeController.postRecipes);
 
 router.route('/getownrecipe/:user_id')

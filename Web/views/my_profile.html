@@ -94,64 +94,26 @@
 						<!--//about-->
 					
 						<!--my recipes-->
-						<!-- <div class="tab-content" id="recipes">
+						<div class="tab-content" id="recipes">
 							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img6.jpg" alt="" />
-										<figcaption><a href="/#/recipes"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipes">这里是菜品名称</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-medium"></i><a href="#">难度</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipes#comments">27</a></div>
-											</div>
-										</div>
+
+								<div class="entry one-third wow fadeInLeft" ng-repeat="recipe in recipelist">
+							<figure>
+								<img ng-src="{{recipe.photo}}" alt="" />
+								<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+							</figure>
+							<div class="container">
+								<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
+								<div class="actions">
+									<div>
+										<div class="difficulty"><i class="ico i-medium"></i><a href="#">{{recipe.level}}</a></div>
+										<div class="likes"><i class="ico i-likes"></i><a href="#">{{recipe.likeNum}}</a></div>
+										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div>
 									</div>
 								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img5.jpg" alt="" />
-										<figcaption><a href="/#/recipes"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipes">这里是菜品名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-hard"></i><a href="#">难易程度</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipes#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img8.jpg" alt="" />
-										<figcaption><a href="/#/recipes"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipes">这里是菜品名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-easy"></i><a href="#">难易等级</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipes#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
+							</div>
+						</div>
+						
 							</div>
 						</div>
 						//my recipes

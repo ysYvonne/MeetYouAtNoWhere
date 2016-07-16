@@ -23,6 +23,7 @@ angular.module('kitchenSecretApp')
      $http.get('api/getownrecipe/'+$scope.userid)
      .success(function (data){
      $scope.recipeNum = data.length;
+     $scope.recipelist=data;
      });
 
      $scope.SubmitPhoto = function (file) {

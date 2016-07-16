@@ -26,6 +26,27 @@ angular.module('kitchenSecretApp')
      $scope.recipelist=data;
      });
 
+     //var likeList = new Array();
+
+     $http.get('api/getuserlikes/'+$scope.userid).success(function  (data) {
+
+$scope.likeNum = data.length;
+      $http.get('api/getrecipe/'+data[0].recipeId)
+             .success(function (data1){
+                $scope.likerecipelist = data1;
+
+        for(var i=1; i<data.length; i++){
+          $http.get('api/getrecipe/'+data[i].recipeId)
+             .success(function (data2){
+                //likeList[i]=data1[0];
+                $scope.likerecipelist.push(data2[0]);
+            });          
+        }
+            });        
+    });
+
+
+
      $scope.SubmitPhoto = function (file) {
             console.log(file);
             file.upload = Upload.upload({

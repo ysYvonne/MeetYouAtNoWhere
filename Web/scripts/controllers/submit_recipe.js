@@ -74,30 +74,30 @@ angular.module('kitchenSecretApp')
                         }
                     });
 
-                file.upload.then(function (response) {
-                    $timeout(function () {
-                        file.result = response.data;
-                        var recipe_id = file.result._id;
-                        console.log(recipe_id);
-                        $http({
-                            method : 'POST',
-                            url : 'api/own',
-                            data :
-                                "recipe_id=" + recipe_id,
-                            headers : {
-                                'Content-Type' : 'application/x-www-form-urlencoded'
-                            }
-                        }).success(function(){
-                            $location.path('/recipes');
-                        });
-                    });
-                }, function (response) {
-                    if (response.status > 0)
-                        $scope.errorMsg = response.status + ': ' + response.data;
-                }, function (evt) {
-                    // Math.min is to fix IE which reports 200% sometimes
-                    file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                });
+                // file.upload.then(function (response) {
+                //     $timeout(function () {
+                //         file.result = response.data;
+                //         var recipe_id = file.result._id;
+                //         console.log(recipe_id);
+                //         $http({
+                //             method : 'POST',
+                //             url : 'api/own',
+                //             data :
+                //                 "recipe_id=" + recipe_id,
+                //             headers : {
+                //                 'Content-Type' : 'application/x-www-form-urlencoded'
+                //             }
+                //         }).success(function(){
+                //             $location.path('/recipes');
+                //         });
+                //     });
+                // }, function (response) {
+                //     if (response.status > 0)
+                //         $scope.errorMsg = response.status + ': ' + response.data;
+                // }, function (evt) {
+                //     // Math.min is to fix IE which reports 200% sometimes
+                //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                // });
 
             };
 

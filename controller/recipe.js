@@ -67,6 +67,15 @@ exports.getRecipes = function (req, res) {
     });
 };
 
+exports.getOwnRecipes = function (req, res) {
+    Recipe.find({userId: req.params.user_id}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+    });
+};
+
 exports.getRecipe = function (req, res) {
     Recipe.find({_id: req.params.recipe_id}, function (err, recipe) {
         if (err)
@@ -75,6 +84,17 @@ exports.getRecipe = function (req, res) {
             res.status(404).end();
         else
             res.status(200).json(recipe);
+    });
+};
+
+exports.putRecipeStatus = function (req, res) {
+    Recipe.update({_id: req.params.recipe_id}, {
+        status:1
+    },function (err, num, raw) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(204).end();
     });
 };
 

@@ -10,7 +10,6 @@ var authController = require('./controller/auth');
 var contactController = require('./controller/contact')
 var followController = require('./controller/follow');
 var likeController = require('./controller/like');
-var ownController = require('./controller/own');
 var recipeController = require('./controller/recipe');
 var userController = require('./controller/user');
 
@@ -72,28 +71,19 @@ router.route('/getlikes')
 router.route('/deletelike')
     .delete(authController.isAuthenticated,likeController.deleteLike );
 
-router.route('/own')
-    .post(authController.isAuthenticated, ownController.postOwns);
-
-router.route('/putown')
-    .put(authController.isAuthenticated, adminGroup(), ownController.putOwn);
-
-router.route('/getowns')
-    .get(authController.isAuthenticated, ownController.getOwns);
-
-router.route('/deleteown')
-    .delete(authController.isAuthenticated, ownController.deleteOwn);
-
 router.route('/recipe')
     .post(authController.isAuthenticated,mulipartyMiddleware,recipeController.postRecipes);
 
-router.route('/getrecipe/:recipe_id')
-    .get(authController.isAuthenticated, recipeController.getRecipe);
+router.route('/getownrecipe/:user_id')
+    .get(authController.isAuthenticated, recipeController.getOwnRecipes);
 
 router.route('/getrecipes')
     .get(authController.isAuthenticated, recipeController.getRecipes);
 
-router.route('/putrecipe')
+router.route('/putrecipestatus/:recipe_id')
+    .put(authController.isAuthenticated,  adminGroup(), recipeController.putRecipeStatus);  
+
+router.route('/putrecipe/:recipe_id')
     .put(authController.isAuthenticated, recipeController.putRecipe);            
 
 router.route('/deleterecipe')

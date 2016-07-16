@@ -58,8 +58,12 @@ var RecipeSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default:0
+    },
+    status:{
+        type:Number,
+        required:true,
+        default:0
     }
-
 });
 RecipeSchema.methods.toJSON = function () {
     var obj = this.toObject();

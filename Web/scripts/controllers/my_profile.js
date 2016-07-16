@@ -19,8 +19,10 @@ angular.module('kitchenSecretApp')
      $http.get('api/users/'+$scope.userid)
      .success(function  (data) {
      $scope.awesomeThings=data;
-     // if(awesomeThings[0].photo === null)
-     // 	awesomeThings[0].photo="images/avatar.jpg";
+     });
+     $http.get('api/getownrecipe/'+$scope.userid)
+     .success(function (data){
+     $scope.recipeNum = data.length;
      });
 
      $scope.SubmitPhoto = function (file) {

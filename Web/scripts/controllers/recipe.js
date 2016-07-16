@@ -38,19 +38,19 @@ angular.module('kitchenSecretApp')
     });
 
     $http.get('api/getlike/'+$routeParams.id).success(function  (data) {
-             $scope.likeNum = data.length;
-        });
-
-    $http({
+              $http({
             method : 'PUT',
             url : 'api/putrecipelike/'+$routeParams.id,
             data :
-            "likeNum=" + $scope.likeNum,
+            "likeNum=" + data.length,
             headers : {
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }
-    }).success(function (data, status, headers, config) {})
-      .error(function (data, status, headers, config) {});
+    });
+             // $scope.likeNum = data.length;
+        });
+
+   
 
 	 $scope.addLike = function (idx) {
 	 	       if($scope.hasLiked){

@@ -84,6 +84,9 @@ router.route('/recipe')
 router.route('/getownrecipe/:user_id')
     .get(authController.isAuthenticated, recipeController.getOwnRecipes);
 
+router.route('/getrecipe/:recipe_id')
+    .get(authController.isAuthenticated, recipeController.getRecipe);
+
 router.route('/getrecipes')
     .get(authController.isAuthenticated, recipeController.getRecipes);
 

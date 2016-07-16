@@ -54,11 +54,6 @@ var RecipeSchema = new mongoose.Schema({
         required: true,
         default:0
     },
-    favorateNum: {
-        type: Number,
-        required: true,
-        default:0
-    },
     status:{
         type:Number,
         required:true,

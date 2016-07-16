@@ -16,15 +16,6 @@ exports.postRecipes = function (req, res) {
     recipe.userId = req.user._id;
     var file = req.files.picture;
 
-    // for (var i in req.files) {
-    //     if(req.files[i].size==0){
-    //         fs.unlinkSync(req.files[i].path);        
-    //     }else{
-    //         var target_path='./uploads/'+req.files[i].name;
-    //         fs.renameSync(req.files[i].path, target_path);
-    //     }
-
-    // }
     if (!(req.files.picture === undefined)) {
 
         var my_chance = new Chance();
@@ -84,6 +75,17 @@ exports.getRecipe = function (req, res) {
             res.status(404).end();
         else
             res.status(200).json(recipe);
+    });
+};
+
+exports.putRecipeLike = function (req, res) {
+    Recipe.update({_id: req.params.recipe_id}, {
+        likeNum:req.body.likeNum
+    },function (err, num, raw) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(204).end();
     });
 };
 

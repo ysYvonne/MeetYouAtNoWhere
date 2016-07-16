@@ -25,8 +25,19 @@ exports.getLikes = function (req, res) {
     });
 };
 
+exports.getUserLikes = function (req, res) {
+    Like.find({userId: req.params.user_id}, function (err, like) {
+        if (err)
+            res.status(400).json(err);
+        else if (!like)
+            res.status(404).end();
+        else
+            res.status(200).json(like);
+    });
+};
+
 exports.getLike = function (req, res) {
-    Like.find({_id: req.params.like_id}, function (err, like) {
+    Like.find({recipeId: req.params.recipe_id}, function (err, like) {
         if (err)
             res.status(400).json(err);
         else if (!like)

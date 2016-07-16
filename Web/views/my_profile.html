@@ -49,7 +49,7 @@
 						<nav class="tabs">
 							<ul>
 								<li class="active"><a href="#my_profile#about" title="About me">个人信息</a></li>
-								<li><a href="#recipes" title="My recipes">我的菜谱</a></li>
+								<li><a href="#my_profile#recipes" title="My recipes">我的菜谱</a></li>
 								<li><a href="#my_profile#favorites" title="My favorites">我的喜欢</a></li>
 								<li><a href="#my_profile#posts" title="My posts">ヽ(•̀ω•́ )ゝ</a></li>
 							</ul>
@@ -106,9 +106,9 @@
 								<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 								<div class="actions">
 									<div>
-										<div class="difficulty"><i class="ico i-medium"></i><a href="#">{{recipe.level}}</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">{{recipe.likeNum}}</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div>
+										<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+										<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+										<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
 									</div>
 								</div>
 							</div>

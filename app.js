@@ -65,10 +65,16 @@ router.route('/deletefollow')
 router.route('/like')
     .post(authController.isAuthenticated, likeController.postLikes);
 
+router.route('/getuserlikes/:user_id')
+     .get(authController.isAuthenticated,likeController.getUserLikes);
+
+router.route('/getlike/:recipe_id')
+     .get(authController.isAuthenticated,likeController.getLike);
+
 router.route('/getlikes')
     .get(authController.isAuthenticated,likeController.getLikes);
 
-router.route('/deletelike')
+router.route('/deletelike/:like_id')
     .delete(authController.isAuthenticated,likeController.deleteLike );
 
 router.route('/recipe')
@@ -83,6 +89,9 @@ router.route('/getrecipes')
 
 router.route('/putrecipestatus/:recipe_id')
     .put(authController.isAuthenticated,  adminGroup(), recipeController.putRecipeStatus);  
+
+router.route('/putrecipelike/:recipe_id')
+    .put(authController.isAuthenticated, recipeController.putRecipeLike);  
 
 router.route('/putrecipe/:recipe_id')
     .put(authController.isAuthenticated, recipeController.putRecipe);            

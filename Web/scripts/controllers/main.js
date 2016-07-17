@@ -55,4 +55,32 @@ angular.module('kitchenSecretApp')
     $http.get('api/users/'+$scope.userid).success(function  (data) {
      $scope.awesomeThings=data;
   });
+
+    $http.get('api/getrecipes').success(function  (data) {
+        $http.get('api/getrecipe/'+data[(data.length-1)]._id)
+             .success(function (data1){
+                $scope.newrecipelist = data1;
+                $scope.newrecipelist[1] = data[data.length-2];
+                $scope.newrecipelist[2] = data[data.length-3];
+                $scope.newrecipelist[3] = data[data.length-4];
+                $scope.newrecipelist[4] = data[data.length-5];
+                $scope.newrecipelist[5] = data[data.length-6];
+            });
+
+        $scope.recommandrecipe = data[0];
+        $http.get('api/users/'+data[0].userId).success(function  (data2) {
+            $scope.author=data2[0];
+        });
+
+        for(var i=1; i<data.length;i++)
+        {
+            if(data[i].likeNum > $scope.recommandrecipe.likeNum){
+                $scope.recommandrecipe = data[i];
+                $http.get('api/users/'+data[i].userId).success(function  (data2) {
+                   $scope.author=data2[0];
+                });
+            }
+        }        
+    });
+
 });

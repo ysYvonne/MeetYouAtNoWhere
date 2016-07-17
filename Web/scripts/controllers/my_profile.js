@@ -30,8 +30,8 @@ angular.module('kitchenSecretApp')
 
      $http.get('api/getuserlikes/'+$scope.userid).success(function  (data) {
 
-$scope.likeNum = data.length;
-      $http.get('api/getrecipe/'+data[0].recipeId)
+              $scope.likeNum = data.length;
+              $http.get('api/getrecipe/'+data[0].recipeId)
              .success(function (data1){
                 $scope.likerecipelist = data1;
 

@@ -14,6 +14,12 @@ exports.postRecipes = function (req, res) {
     recipe.level = req.body.level;
     recipe.labels = req.body.labels;
     recipe.userId = req.user._id;
+    recipe.noMeat = req.body.noMeat;
+    recipe.noSugar = req.body.noSugar;
+    recipe.lowFat = req.body.lowFat;
+    recipe.spicy = req.body.spicy;
+    recipe.noLactose = req.body.noLactose;
+    recipe.lowCal = req.body.lowCal;
     var file = req.files.picture;
 
     if (!(req.files.picture === undefined)) {

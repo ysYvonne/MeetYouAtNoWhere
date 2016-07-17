@@ -68,227 +68,18 @@
 					<!--results-->
 					<div class="entries row">
 						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft">
+						<div class="entry one-third wow fadeInLeft" ng-repeat="recipe in recipelist">
 							<figure>
-								<img src="images/img6.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
+								<img ng-src="{{recipe.photo}}" alt="" />
+								<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
 							</figure>
 							<div class="container">
-								<h2><a href="/#/recipe">Thai fried rice with fruit and vegetables</a></h2> 
+								<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 								<div class="actions">
 									<div>
-										<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay=".2s">
-							<figure>
-								<img src="images/img5.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay=".4s">
-							<figure>
-								<img src="images/img8.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Super easy blueberry cheesecake</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay=".6s">
-							<figure>
-								<img src="images/img7.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Refreshing banana split with a twist for adults</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay=".8s">
-							<figure>
-								<img src="images/img3.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Sushi mania: this is the best sushi you have ever tasted</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="1s">
-							<figure>
-								<img src="images/img4.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Princess puffs - an old classic at its best</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="1.2s">
-							<figure>
-								<img src="images/img13.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Tasty salmon apetizers with sour cream</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth  wow fadeInLeft" data-wow-delay="1.4s">
-							<figure>
-								<img src="images/img14.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">An incredible vegetarian hamburger</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="1.6s">
-							<figure>
-								<img src="images/img15.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Spaghetti carbonara with rustic bread</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="1.8s">
-							<figure>
-								<img src="images/img16.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Homemade cheesy spinach pizza with an egg on top</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="2s">
-							<figure>
-								<img src="images/img17.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Heavenly light and creamy vanilla tart</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--item-->
-						
-						<!--item-->
-						<div class="entry one-fourth wow fadeInLeft" data-wow-delay="2.2s">
-							<figure>
-								<img src="images/img18.jpg" alt="" />
-								<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe">Exquisite plum and cherry pie</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-										<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-										<div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
+										<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+										<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+										<div class="comments"><i class="ico i-comments"></i>{{0}}</div>
 									</div>
 								</div>
 							</div>
@@ -296,7 +87,7 @@
 						<!--item-->
 						
 						<div class="quicklinks">
-							<a href="#" class="button">更多菜谱</a>
+							<a href="/#/recipes" class="button">更多菜谱</a>
 							<a href="javascript:void(0)" class="button scroll-to-top">回到顶部</a>
 						</div>
 					</div>

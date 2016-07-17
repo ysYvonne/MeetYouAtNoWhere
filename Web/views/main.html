@@ -87,16 +87,16 @@
                                     <h2 class="ribbon">今日推荐</h2>
                                 </header>
                                 <article class="entry">
-                                    <figure>
-                                        <img src="images/img2.jpg" alt="" />
-                                        <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                    </figure>
+                                   <figure>
+                                        <img ng-src="{{recommandrecipe.photo}}" alt="" />
+                                        <figcaption><a href="/#/recipe/{{recommandrecipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+                                   </figure>
                                     <div class="container">
-                                        <h2><a href="/#/recipe">煎鸡蛋</a></h2>
-                                        <p>这是一个香喷喷的煎鸡蛋嘞 </p>
+                                        <h2>{{recommandrecipe.name}}</h2>
+                                        <p>{{recommandrecipe.description}}</p>
                                         <div class="actions">
                                             <div>
-                                                <a href="#" class="button">查看完整菜谱</a>
+                                                <a href="/#/recipe/{{recommandrecipe._id}}" class="button">查看完整菜谱</a>
                                             </div>
                                         </div>
                                     </div>
@@ -105,18 +105,19 @@
                             <!--//featured recipe-->
                             
                             <!--featured member-->
+                            
                             <div class="featured one-third wow fadeInLeft" data-wow-delay=".2s">
                                 <header class="s-title">
                                     <h2 class="ribbon star">菜谱分享人</h2>
                                 </header>
                                 <article class="entry">
                                     <figure>
-                                        <img src="images/avatar.jpg" alt="" />
+                                        <img ng-src="{{author.photo}}" alt="" />
                                         
                                     </figure>
                                     <div class="container">
-                                        <h2><a href="my_profile.html">隔壁老王</a></h2>
-                                        <blockquote>推荐理由：色、香、味俱全，随手捞个蛋就能做，皮卡 (｡・`ω´･)</blockquote>
+                                        <h2>{{author.nickname}}</h2>
+                                        <blockquote>个性签名：{{author.intro}}</blockquote>
                                         <div class="actions">
                                             <div>
                                                 <p><——wuli maker!</p>
@@ -139,122 +140,27 @@
                         
                         <!--entries-->
                         <div class="entries row">
-                            <!--item-->
-                            <div class="entry one-third wow fadeInLeft">
-                                <figure>
-                                    <img src="images/img6.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">泰式水果炒饭</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-medium"></i><a href="#">中</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--item-->
                             
                             <!--item-->
-                            <div class="entry one-third wow fadeInLeft" data-wow-delay=".2s">
-                                <figure>
-                                    <img src="images/img5.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">辣味摩洛哥对虾配番茄</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
+                        <div class="entry one-third wow fadeInLeft" ng-repeat="recipe in newrecipelist">
+                            <figure>
+                                <img ng-src="{{recipe.photo}}" alt="" />
+                                <figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+                            </figure>
+                            <div class="container">
+                                <h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
+                                <div class="actions">
+                                    <div>
+                                        <div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+                                        <div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+                                        <div class="comments"><i class="ico i-comments"></i>{{0}}</div>
                                     </div>
                                 </div>
                             </div>
-                            <!--item-->
-                            
-                            <!--item-->
-                            <div class="entry one-third wow fadeInLeft" data-wow-delay=".4s">
-                                <figure>
-                                    <img src="images/img8.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">简易蓝莓蛋糕</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-easy"></i><a href="#">易</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--item-->
-                            
-                            <!--item-->
-                            <div class="entry one-third wow fadeInLeft" data-wow-delay=".6s">
-                                <figure>
-                                    <img src="images/img7.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">香蕉蛋卷</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--item-->
-                            
-                            <!--item-->
-                            <div class="entry one-third wow fadeInLeft" data-wow-delay=".8s">
-                                <figure>
-                                    <img src="images/img3.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">疯狂寿司：你的家庭自制寿司</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-easy"></i><a href="#">易</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--item-->
-                            
-                            <!--item-->
-                            <div class="entry one-third wow fadeInLeft" data-wow-delay="1s">
-                                <figure>
-                                    <img src="images/img4.jpg" alt="" />
-                                    <figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-                                </figure>
-                                <div class="container">
-                                    <h2><a href="/#/recipe">奶油泡芙：吃了不会胖哟</a></h2> 
-                                    <div class="actions">
-                                        <div>
-                                            <div class="difficulty"><i class="ico i-hard"></i><a href="#">难</a></div>
-                                            <div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-                                            <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">27</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--item-->
+                        </div>
                             
                             <div class="quicklinks">
-                                <a href="#" class="button">更多菜谱</a>
+                                <a href="/#/recipes" class="button">更多菜谱</a>
                                 <a href="javascript:void(0)" class="button scroll-to-top">回到顶部</a>
                             </div>
                         </div>

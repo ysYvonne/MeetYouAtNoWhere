@@ -51,21 +51,27 @@ var RecipeSchema = new mongoose.Schema({
     },
     noMeat:{
         type: Boolean,
+        default:false
     },
     noSugar:{
         type: Boolean,
+        default:false
     },
     lowFat:{
         type: Boolean,
+        default:false
     },
     spicy:{
         type: Boolean,
+        default:false
     },
     noLactose:{
         type: Boolean,
+        default:false
     },
     lowCal:{
         type: Boolean,
+        default:false
     },
   	likeNum: {
         type: Number,

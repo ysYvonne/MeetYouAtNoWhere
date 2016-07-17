@@ -51,6 +51,10 @@ angular.module('kitchenSecretApp')
         }, 800);
         return false;
     });
+
+    // $scope.selecttypes = ["选择分类", "主菜", "甜点", "饮料", "小吃", "海鲜", "西餐"];
+    // $scope.selecttype = $scope.selecttypes[0];
+
     $scope.userid=$window.sessionStorage['userid'];
     $http.get('api/users/'+$scope.userid).success(function  (data) {
      $scope.awesomeThings=data;

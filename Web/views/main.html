@@ -17,7 +17,7 @@
                     </article>
                     
                     <!--search recipes widget-->
-                    <div class="one-fourth wow fadeInDown" data-wow-delay=".5s">
+                    <!-- <div class="one-fourth wow fadeInDown" data-wow-delay=".5s">
                         <div class="widget container">
                             <div class="textwrap">
                                 <h3>搜索菜谱</h3>
@@ -26,29 +26,19 @@
                                 <p>这里一定有吸引你的美食呢</p> 
                                 <p>玩得开心!</p>
                             </div>
-                            <form action="/#/find_recipe">
+                            <form action="/#/find_recipe/{{selecttype}}#{{selectkey}}">
                                 <div class="f-row">
-                                    <input type="text" placeholder="输入菜品关键字" />
+                                    <input type="text" ng-model = "selectkey"  placeholder="输入菜品关键字" />
                                 </div>
                                 <div class="f-row">
-                                    <select>
-                                        <option>选择分类</option>
-                                        <option>主食</option>
-                                        <option>菜品</option>
-                                        <option>粥类</option>
-                                        <option>甜点</option>
-                                        <option>饮料</option>
-                                        <option>小吃</option>
-                                        <option>西餐</option>
-                                        <option>海鲜</option>
-                                    </select>
+                                    <select ng-model="selecttype" ng-options="selecttype for selecttype in selecttypes"></select>
                                 </div>
                                 <div class="f-row bwrap">
                                     <input type="submit" value="去吃吧～皮卡丘!" />
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                     <!--//search recipes widget-->
                 </div>
                 <!--//row-->
@@ -179,19 +169,19 @@
                     <div class="widget wow fadeInRight">
                         <h3>菜谱分类</h3>
                         <ul class="boxed">
-                            <li class="light"><a href="/#/recipes" title="Appetizers"><i class="ico i-appetizers"></i> <span>主菜</span></a></li>
-                            <li class="medium"><a href="/#/recipes" title="Cocktails"><i class="ico i-cocktails"></i> <span>饮料</span></a></li>
-                            <li class="dark"><a href="/#/recipes" title="Deserts"><i class="ico i-deserts"></i> <span>甜点</span></a></li>
-                            <li class="medium"><a href="/#/recipes" title="Cocktails"><i class="ico i-eggs"></i> <span>小吃</span></a></li>
-                            <li class="dark"><a href="/#/recipes" title="Equipment"><i class="ico i-equipment"></i> <span>海鲜</span></a></li>
-                            <li class="light"><a href="/#/recipes" title="Events"><i class="ico i-events"></i> <span>西餐</span></a></li>
+                            <li class="light"><a href="/#/recipes/type-entree" title="Appetizers"><i class="ico i-appetizers"></i> <span>主菜</span></a></li>
+                            <li class="medium"><a href="/#/recipes/type-drink" title="Cocktails"><i class="ico i-cocktails"></i> <span>饮料</span></a></li>
+                            <li class="dark"><a href="/#/recipes/type-desert" title="Deserts"><i class="ico i-deserts"></i> <span>甜点</span></a></li>
+                            <li class="medium"><a href="/#/recipes/type-snack" title="Cocktails"><i class="ico i-eggs"></i> <span>小吃</span></a></li>
+                            <li class="dark"><a href="/#/recipes/type-fish" title="Equipment"><i class="ico i-equipment"></i> <span>海鲜</span></a></li>
+                            <li class="light"><a href="/#/recipes/type-west" title="Events"><i class="ico i-events"></i> <span>西餐</span></a></li>
 
-                            <li class="light"><a href="/#/recipes" title="Ftness"><i class="ico i-fitness"></i> <span>素食</span></a></li>
-                            <li class="medium"><a href="/#/recipes" title="Healthy"><i class="ico i-healthy"></i> <span>无糖</span></a></li>
-                            <li class="light"><a href="/#/recipes" title="Asian"><i class="ico i-asian"></i> <span>低脂</span></a></li>
-                            <li class="medium"><a href="/#/recipes" title="Mexican"><i class="ico i-mexican"></i> <span>麻辣</span></a></li>
-                            <li class="dark"><a href="/#/recipes" title="Pizza"><i class="ico i-pizza"></i> <span>无糖</span></a></li>
-                            <li class="medium"><a href="/#/recipes" title="Kids"><i class="ico i-kids"></i> <span>低卡路里</span></a></li>
+                            <li class="light"><a href="/#/recipes/label-noMeat" title="Ftness"><i class="ico i-fitness"></i> <span>素食</span></a></li>
+                            <li class="medium"><a href="/#/recipes/label-noSugar" title="Healthy"><i class="ico i-healthy"></i> <span>无糖</span></a></li>
+                            <li class="light"><a href="/#/recipes/label-lowFat" title="Asian"><i class="ico i-asian"></i> <span>低脂</span></a></li>
+                            <li class="medium"><a href="/#/recipes/label-spicy" title="Mexican"><i class="ico i-mexican"></i> <span>麻辣</span></a></li>
+                            <li class="dark"><a href="/#/recipes/label-noLactose" title="Pizza"><i class="ico i-pizza"></i> <span>无乳糖</span></a></li>
+                            <li class="medium"><a href="/#/recipes/label-lowCal" title="Kids"><i class="ico i-kids"></i> <span>低卡路里</span></a></li>
                         </ul>
                     </div>
                 </aside>

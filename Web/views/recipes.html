@@ -7,6 +7,7 @@
 				<ul>
 					<li><a href="/#/" title="Home">首页</a></li>
 					<li>菜谱</li>
+					
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
@@ -14,13 +15,16 @@
 			<!--row-->
 			<div class="row">
 				<header class="s-title wow fadeInLeft">
-					<h1>菜谱</h1>
+					<h1>{{type}}</h1>
 				</header>
 				
 				<!--content-->
 				<section class="content three-fourth wow fadeInUp">
 					<!--entries-->
 					<div class="entries row">
+
+
+						<h2>{{message}}</h2>
 
 
 						<!--item-->
@@ -42,7 +46,7 @@
 						</div>
 						
 						<div class="quicklinks">
-							<a href="/#/" class="button">更多菜品</a>
+							<a href="/#/recipes" class="button">更多菜品</a>
 							<a href="javascript:void(0)" class="button scroll-to-top">回到顶部</a>
 						</div>
 					</div>
@@ -54,20 +58,20 @@
 				<aside class="sidebar one-fourth wow fadeInRight">
 					<div class="widget">
 						<ul class="categories right">
-							<li class="active"><a href="#">所有分类</a></li>
-							<li><a href="#">主菜</a></li>
-							<li><a href="#">甜点</a></li>
-							<li><a href="#">饮料</a></li>
-							<li><a href="#">小吃</a></li>
-							<li><a href="#">西餐</a></li>
-							<li><a href="#">海鲜</a></li>
-							
-							<li><a href="#">素食</a></li>
-							<li><a href="#">无糖</a></li>
-							<li><a href="#">低脂</a></li>
-							<li><a href="#">麻辣</a></li>
-							<li><a href="#">无乳糖</a></li>
-							<li><a href="#">低卡路里</a></li>
+							<li class="active"><a href="/#/recipes">所有分类</a></li>
+							<li ><a href="/#/recipes/type-entree" >主菜</a></li>
+                            <li ><a href="/#/recipes/type-drink">饮料</a></li>
+                            <li ><a href="/#/recipes/type-desert">甜点</a></li>
+                            <li ><a href="/#/recipes/type-snack">小吃</a></li>
+                            <li ><a href="/#/recipes/type-fish">海鲜</a></li>
+                            <li ><a href="/#/recipes/type-west">西餐</a></li>
+
+                            <li ><a href="/#/recipes/label-noMeat">素食</a></li>
+                            <li ><a href="/#/recipes/label-noSugar">无糖</a></li>
+                            <li ><a href="/#/recipes/label-lowFat">低脂</a></li>
+                            <li ><a href="/#/recipes/label-spicy">麻辣</a></li>
+                            <li ><a href="/#/recipes/label-noLactose">无乳糖</a></li>
+                            <li ><a href="/#/recipes/label-lowCal">低卡路里</a></li>
 						</ul>
 					</div>
 

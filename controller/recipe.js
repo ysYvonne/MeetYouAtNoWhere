@@ -73,6 +73,98 @@ exports.getOwnRecipes = function (req, res) {
     });
 };
 
+exports.getRecipesByType = function (req, res) {
+    var type = "主菜";
+    if(req.params.type === "entree")
+    {
+        type = "主菜";
+    }
+    else if(req.params.type === "drink")
+    {
+        type = "饮料";
+    }
+    else if(req.params.type === "desert")
+    {
+        type = "甜点";
+    }
+    else if(req.params.type === "snack")
+    {
+         type = "小吃";
+    }
+    else if(req.params.type === "fish")
+    {
+        type = "海鲜";
+    }
+    else 
+    {
+        type = "西餐";
+    }
+    Recipe.find({labels:type}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+        });
+};
+
+exports.getRecipesByLabel = function (req, res) {
+    if(req.params.label == "noMeat")
+    {
+         Recipe.find({noMeat:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+    else if(req.params.label == "noSugar")
+    {
+         Recipe.find({noSugar:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+    else if(req.params.label == "spicy")
+    {
+         Recipe.find({spicy:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+    else if(req.params.label == "lowFat")
+    {
+         Recipe.find({lowFat:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+    else if(req.params.label == "lowCal")
+    {
+         Recipe.find({lowCal:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+    else 
+    {
+        Recipe.find({noLactose:true}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+        });
+    }
+   
+};
+
 exports.getRecipe = function (req, res) {
     Recipe.find({_id: req.params.recipe_id}, function (err, recipe) {
         if (err)

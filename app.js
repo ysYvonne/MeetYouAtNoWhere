@@ -87,6 +87,12 @@ router.route('/getownrecipe/:user_id')
 router.route('/getrecipe/:recipe_id')
     .get(authController.isAuthenticated, recipeController.getRecipe);
 
+router.route('/getrecipesbytype/:type')
+    .get(authController.isAuthenticated, recipeController.getRecipesByType);
+
+router.route('/getrecipesbylabel/:label')
+    .get(authController.isAuthenticated, recipeController.getRecipesByLabel);
+
 router.route('/getrecipes')
     .get(authController.isAuthenticated, recipeController.getRecipes);
 

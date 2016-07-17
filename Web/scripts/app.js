@@ -39,6 +39,10 @@ angular
         templateUrl: 'views/recipe.html',
         controller: 'RecipeCtrl',
       })
+      .when('/recipes/:type',{
+        templateUrl: 'views/recipes.html',
+        controller: 'RecipesCtrl',
+      })
       .when('/recipes',{
         templateUrl: 'views/recipes.html',
         controller: 'RecipesCtrl',

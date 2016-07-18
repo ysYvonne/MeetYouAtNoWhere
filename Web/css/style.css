@@ -557,7 +557,7 @@ form .alert {display:none;}
 .captcha label {float:left;line-height:37px;}
 .captcha input {width:100px !important;float:right;}
 
-.bwrap		{float:right !important;padding-right:0 !important;}
+.bwrap		{float:right !important;padding-right:10px !important;}
 .bwrap input 	{width:100%;}
 
 .checkbox {padding:10px 0 !important;}

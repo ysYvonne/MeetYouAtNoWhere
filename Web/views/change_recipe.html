@@ -1,4 +1,4 @@
-	<!--main-->
+<!-- 	<!--main-->
 	<main class="main" role="main">
 		<!--wrap-->
 		<div class="wrap clearfix">
@@ -20,9 +20,13 @@
 				<!--content-->
 				<section class="content full-width wow fadeInUp">
 					<div class="submit_recipe container">
+						
 						<form  name="myForm">
 							<section>
 								<h2>封面</h2>
+								<figure>
+							         <img ng-src="{{recipe.photo}}" alt="" />
+						        </figure>
 								<input type="file" ngf-select ng-model="picFile" name="file"    
 						             accept="image/*" ngf-max-size="20MB" required
 						             ngf-model-invalid="errorFile">
@@ -117,4 +121,4 @@
 		</div>
 		<!--//wrap-->
 	</main>
-	<!--//main-->
+	<!--//main--> -->

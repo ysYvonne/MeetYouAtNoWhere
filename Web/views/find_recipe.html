@@ -6,9 +6,7 @@
 			<nav class="breadcrumbs">
 				<ul>
 					<li><a href="/#/" title="Home">首页</a></li>
-					<li>搜索菜谱 \ {{searchlevel}}
-				    {{searchlabel}}
-					{{searchkey}}</li>
+					<li>搜索菜谱 \ {{searchlevel}} \ {{searchlabel}} \ {{searchkey}}</li>
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
@@ -45,7 +43,7 @@
 						<div class="right">
 							<div class="ingredients">
 								<h3>选择难度</h3>
-								<a ng-click="findByLevel('hard')" class="button gold">困难</a>
+								<a ng-click="findByLevel(hard)" class="button gold">困难</a>
 								<a ng-click="findByLevel('middle')" class="button gold">中等</a>
 								<a ng-click="findByLevel('easy')" class="button gold">简单</a>
 								<h3>选择标签（多选）</h3>
@@ -68,6 +66,7 @@
 									<select ng-model="type" ng-options="type for type in types"></select>
 								</div>
 							</div>
+							<a ng-click="findByLabel('clean')" class="button gold">清除标签</a>
 						</div>
 					</div>
 					<!--//recipefinder-->

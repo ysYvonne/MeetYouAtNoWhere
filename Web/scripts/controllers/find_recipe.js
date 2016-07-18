@@ -26,6 +26,7 @@ angular.module('kitchenSecretApp')
     $scope.searchlevel = "难度:";
     $scope.findByLevel = function (level) {
         $scope.searchlevel = "难度:" +level;
+        $scope.level = level;
         //$scope.searchlabel = "";
         $http.get('api/getrecipesbylevel/'+level).success(function  (data) {
               $scope.recipelist = data;
@@ -35,28 +36,41 @@ angular.module('kitchenSecretApp')
      $scope.searchlabel = "标签:";
 
     $scope.findByLabel = function (label) {
-        $scope.searchlabel += label + " " ;
-        $http.get('api/getrecipesbylabel/'+label).success(function  (data) {
-              // $scope.recipelist = data;
-              var find = false;
-                  for(var i=0; i<$scope.recipelist.length ;i++){
-                    for(var j=0;j<data.length;j++)
-                    {
-                      if($scope.recipelist[i]._id===data[j]._id)
+        if(label !== "clean")
+        {
+          $scope.searchlabel += label + " " ;
+          $http.get('api/getrecipesbylabel/'+label).success(function  (data) {
+                // $scope.recipelist = data;
+                var find = false;
+                    for(var i=0; i<$scope.recipelist.length ;i++){
+                      for(var j=0;j<data.length;j++)
                       {
-                        find = true;
+                        if($scope.recipelist[i]._id===data[j]._id)
+                        {
+                          find = true;
+                        }
+                      }
+                      if(find === true)
+                      {
+                        find = false;
+                      }else
+                      {
+                        $scope.recipelist.splice(i,1);
+                        i--;
                       }
                     }
-                    if(find === true)
-                    {
-                      find = false;
-                    }else
-                    {
-                      $scope.recipelist.splice(i,1);
-                      i--;
-                    }
-                  }
-          });
+            });
+        }
+        else
+        {
+               $scope.searchlevel = "难度:";
+               $scope.searchlabel = "标签:";
+               $scope.searchkey = "关键字:";
+
+              $http.get('api/getrecipes').success(function  (data) {
+                  $scope.recipelist = data;
+              });
+        }
     };
 
     $scope.searchkey = "关键字:";

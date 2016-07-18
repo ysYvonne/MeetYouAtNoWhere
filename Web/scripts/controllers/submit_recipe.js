@@ -27,6 +27,15 @@ angular.module('kitchenSecretApp')
                     }
                 ];
 
+            var selectlabel = [false,false,false,false,false,false];
+            $scope.radioclick = function (num) {
+                if(selectlabel[num-1])
+                    selectlabel[num-1] = false;
+                else
+                    selectlabel[num-1] = true;
+
+            };
+
             $scope.addingredient = function () {
                 var obj = {
                     name : "",
@@ -70,13 +79,13 @@ angular.module('kitchenSecretApp')
                             steps : angular.toJson($scope.instructionlist),
                             level : $scope.level,
                             labels : $scope.type,
-                            picture : file
-                            // noMeat : ifnomeat,
-                            // noSugar : ifnosugar,
-                            // lowFat : iflowfat,
-                            // spicy : ifspicy,
-                            // noLactose : ifnolactose,
-                            // lowCal : iflowcal
+                            picture : file,
+                            noMeat : selectlabel[0],
+                            noSugar : selectlabel[1],
+                            lowFat : selectlabel[2],
+                            spicy : selectlabel[3],
+                            noLactose : selectlabel[4],
+                            lowCal : selectlabel[5]
                         }
                     });
 
@@ -92,32 +101,6 @@ angular.module('kitchenSecretApp')
                     // Math.min is to fix IE which reports 200% sometimes
                     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
                 });
-
-                // file.upload.then(function (response) {
-                //     $timeout(function () {
-                //         file.result = response.data;
-                //         var recipe_id = file.result._id;
-                //         console.log(recipe_id);
-                //         $http({
-                //             method : 'POST',
-                //             url : 'api/own',
-                //             data :
-                //                 "recipe_id=" + recipe_id,
-                //             headers : {
-                //                 'Content-Type' : 'application/x-www-form-urlencoded'
-                //             }
-                //         }).success(function(){
-                //             $location.path('/recipes');
-                //         });
-                //     });
-                // }, function (response) {
-                //     if (response.status > 0)
-                //         $scope.errorMsg = response.status + ': ' + response.data;
-                // }, function (evt) {
-                //     // Math.min is to fix IE which reports 200% sometimes
-                //     file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-                // });
-
             };
 
         }

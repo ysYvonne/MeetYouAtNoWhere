@@ -75,6 +75,10 @@ angular
         templateUrl: 'views/change_pass.html',
         controller: 'ChangePassCtrl',
       })
+      .when('/change_recipe/:recipe_id',{
+        templateUrl: 'views/change_recipe.html',
+        controller: 'ChangeRecipeCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

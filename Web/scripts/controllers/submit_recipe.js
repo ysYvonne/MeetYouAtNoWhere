@@ -70,13 +70,13 @@ angular.module('kitchenSecretApp')
                             steps : angular.toJson($scope.instructionlist),
                             level : $scope.level,
                             labels : $scope.type,
-                            picture : file,
-                            noMeat : ifnomeat,
-                            noSugar : ifnosugar,
-                            lowFat : iflowfat,
-                            spicy : ifspicy,
-                            noLactose : ifnolactose,
-                            lowCal : iflowcal
+                            picture : file
+                            // noMeat : ifnomeat,
+                            // noSugar : ifnosugar,
+                            // lowFat : iflowfat,
+                            // spicy : ifspicy,
+                            // noLactose : ifnolactose,
+                            // lowCal : iflowcal
                         }
                     });
 

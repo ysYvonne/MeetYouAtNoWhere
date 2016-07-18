@@ -73,6 +73,28 @@ exports.getOwnRecipes = function (req, res) {
     });
 };
 
+exports.getRecipesByLevel = function (req, res) {
+    var level = "简单";
+        if(req.params.level === "easy")
+        {
+            level = "简单";
+        }
+        else if(req.params.level === "middle")
+        {
+            level = "中等";
+        }
+        else if(req.params.level === "hard")
+        {
+            level = "困难";
+        }
+    Recipe.find({level:level}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+        });
+};
+
 exports.getRecipesByKeywords = function (req, res) {
      var query={};
      query['name']=new RegExp(req.body.keywords);
@@ -86,37 +108,49 @@ exports.getRecipesByKeywords = function (req, res) {
 };
 
 exports.getRecipesByType = function (req, res) {
-    var type = "主菜";
-    if(req.params.type === "entree")
-    {
-        type = "主菜";
+    if(req.params.type !== "noselect"){
+        var type = "主菜";
+        if(req.params.type === "entree")
+        {
+            type = "主菜";
+        }
+        else if(req.params.type === "drink")
+        {
+            type = "饮料";
+        }
+        else if(req.params.type === "desert")
+        {
+            type = "甜点";
+        }
+        else if(req.params.type === "snack")
+        {
+             type = "小吃";
+        }
+        else if(req.params.type === "fish")
+        {
+            type = "海鲜";
+        }
+        else if(req.params.type === "west")
+        {
+            type = "西餐";
+        }
+        Recipe.find({labels:type}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+            });
     }
-    else if(req.params.type === "drink")
+    else
     {
-        type = "饮料";
+        Recipe.find({}, function (err, recipes) {
+            if (err)
+                res.status(400).json(err);
+            else
+                res.status(200).json(recipes);
+            });
     }
-    else if(req.params.type === "desert")
-    {
-        type = "甜点";
-    }
-    else if(req.params.type === "snack")
-    {
-         type = "小吃";
-    }
-    else if(req.params.type === "fish")
-    {
-        type = "海鲜";
-    }
-    else 
-    {
-        type = "西餐";
-    }
-    Recipe.find({labels:type}, function (err, recipes) {
-        if (err)
-            res.status(400).json(err);
-        else
-            res.status(200).json(recipes);
-        });
+   
 };
 
 exports.getRecipesByLabel = function (req, res) {

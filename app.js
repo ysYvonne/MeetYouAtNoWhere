@@ -93,6 +93,9 @@ router.route('/getrecipesbytype/:type')
 router.route('/getrecipesbylabel/:label')
     .get(authController.isAuthenticated, recipeController.getRecipesByLabel);
 
+router.route('/getrecipesbylevel/:level')
+    .get(authController.isAuthenticated, recipeController.getRecipesByLevel);
+
 router.route('/getrecipesbykeywords')
     .post(authController.isAuthenticated, recipeController.getRecipesByKeywords);
 

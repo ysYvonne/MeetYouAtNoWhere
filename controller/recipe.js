@@ -73,6 +73,18 @@ exports.getOwnRecipes = function (req, res) {
     });
 };
 
+exports.getRecipesByKeywords = function (req, res) {
+     var query={};
+     query['name']=new RegExp(req.body.keywords);
+
+    Recipe.find(query, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+        });
+};
+
 exports.getRecipesByType = function (req, res) {
     var type = "主菜";
     if(req.params.type === "entree")

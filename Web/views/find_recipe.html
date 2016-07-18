@@ -39,26 +39,26 @@
 						<div class="right">
 							<div class="ingredients">
 								<h3>选择标签可以让搜索更精确哟</h3>
-								<a href="#" class="button gold">困难</a><a href="#" class="button gold">中等</a><a href="#" class="button gold">简单</a><a href="#" class="button gold">素食</a><a href="#" class="button gold">无糖</a><a href="#" class="button gold">低脂</a><a href="#" class="button gold">麻辣</a><a href="#" class="button gold">无乳糖</a><a href="#" class="button gold">低卡</a>
+								<a href="#" class="button gold">困难</a>
+								<a href="#" class="button gold">中等</a>
+								<a href="#" class="button gold">简单</a>
+								<a href="#" class="button gold">素食</a>
+								<a href="#" class="button gold">无糖</a>
+								<a href="#" class="button gold">低脂</a>
+								<a href="#" class="button gold">麻辣</a>
+								<a href="#" class="button gold">无乳糖</a>
+								<a href="#" class="button gold">低卡</a>
 							</div>
 							
 							<h3>你也可以直接搜索菜谱关键字嘞</h3>
 							<div class="row">
 								<div class="search one-half">
-									<input type="search" placeholder="通过关键字找到你想要的菜谱" />
-									<input type="submit" value="Search" />
+									<input type="search" placeholder="通过关键字找到你想要的菜谱" ng-model="keywords"/>
+									<input type="submit" ng-click="findByKeywords()" value="Search" />
 								</div>
 								
 								<div class="one-half">
-									<select>
-										<option>或者再来选择一个分类吧</option>
-										<option>主菜</option>
-										<option>甜点</option>
-										<option>饮料</option>
-										<option>小吃</option>
-										<option>西餐</option>
-										<option>海鲜</option>
-									</select>
+									<select ng-model="type" ng-options="type for type in types"></select>
 								</div>
 							</div>
 						</div>
@@ -67,6 +67,7 @@
 				
 					<!--results-->
 					<div class="entries row">
+						<h2>{{message}}</h2>
 						<!--item-->
 						<div class="entry one-third wow fadeInLeft" ng-repeat="recipe in recipelist">
 							<figure>

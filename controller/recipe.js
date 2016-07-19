@@ -56,7 +56,16 @@ exports.postRecipes = function (req, res) {
 };
 
 exports.getRecipes = function (req, res) {
-    Recipe.find({}, function (err, recipes) {
+    Recipe.find({status:1}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+    });
+};
+
+exports.getCheckRecipes = function (req, res) {
+    Recipe.find({status:0}, function (err, recipes) {
         if (err)
             res.status(400).json(err);
         else
@@ -65,7 +74,7 @@ exports.getRecipes = function (req, res) {
 };
 
 exports.getOwnRecipes = function (req, res) {
-    Recipe.find({userId: req.params.user_id}, function (err, recipes) {
+    Recipe.find({userId: req.params.user_id,status:1}, function (err, recipes) {
         if (err)
             res.status(400).json(err);
         else
@@ -87,7 +96,7 @@ exports.getRecipesByLevel = function (req, res) {
         {
             level = "困难";
         }
-    Recipe.find({level:level}, function (err, recipes) {
+    Recipe.find({level:level,status:1}, function (err, recipes) {
         if (err)
             res.status(400).json(err);
         else
@@ -100,7 +109,7 @@ exports.getRecipesByKeywords = function (req, res) {
         var query={};
         query['name']=new RegExp(req.body.keywords);
 
-        Recipe.find(query, function (err, recipes) {
+        Recipe.find(query,function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -135,7 +144,7 @@ exports.getRecipesByType = function (req, res) {
         {
             type = "西餐";
         }
-        Recipe.find({labels:type}, function (err, recipes) {
+        Recipe.find({labels:type,status:1},function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -144,7 +153,7 @@ exports.getRecipesByType = function (req, res) {
     }
     else
     {
-        Recipe.find({}, function (err, recipes) {
+        Recipe.find({status:1}, function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -157,7 +166,7 @@ exports.getRecipesByType = function (req, res) {
 exports.getRecipesByLabel = function (req, res) {
     if(req.params.label == "noMeat")
     {
-         Recipe.find({noMeat:true}, function (err, recipes) {
+         Recipe.find({noMeat:true,status:1}, function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -166,7 +175,7 @@ exports.getRecipesByLabel = function (req, res) {
     }
     else if(req.params.label == "noSugar")
     {
-         Recipe.find({noSugar:true}, function (err, recipes) {
+         Recipe.find({noSugar:true,status:1}, function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -175,7 +184,7 @@ exports.getRecipesByLabel = function (req, res) {
     }
     else if(req.params.label == "spicy")
     {
-         Recipe.find({spicy:true}, function (err, recipes) {
+         Recipe.find({spicy:true,status:1},function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -184,7 +193,7 @@ exports.getRecipesByLabel = function (req, res) {
     }
     else if(req.params.label == "lowFat")
     {
-         Recipe.find({lowFat:true}, function (err, recipes) {
+         Recipe.find({lowFat:true,status:1}, function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -193,7 +202,7 @@ exports.getRecipesByLabel = function (req, res) {
     }
     else if(req.params.label == "lowCal")
     {
-         Recipe.find({lowCal:true}, function (err, recipes) {
+         Recipe.find({lowCal:true,status:1}, function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -202,7 +211,7 @@ exports.getRecipesByLabel = function (req, res) {
     }
     else 
     {
-        Recipe.find({noLactose:true}, function (err, recipes) {
+        Recipe.find({noLactose:true,status:1},function (err, recipes) {
             if (err)
                 res.status(400).json(err);
             else
@@ -213,7 +222,7 @@ exports.getRecipesByLabel = function (req, res) {
 };
 
 exports.getRecipe = function (req, res) {
-    Recipe.find({_id: req.params.recipe_id}, function (err, recipe) {
+    Recipe.find({_id: req.params.recipe_id,status:1},function (err, recipe) {
         if (err)
             res.status(400).json(err);
         else if (!recipe)
@@ -224,7 +233,7 @@ exports.getRecipe = function (req, res) {
 };
 
 exports.putRecipeLike = function (req, res) {
-    Recipe.update({_id: req.params.recipe_id}, {
+    Recipe.update({_id: req.params.recipe_id},{
         likeNum:req.body.likeNum
     },function (err, num, raw) {
         if (err)
@@ -236,7 +245,7 @@ exports.putRecipeLike = function (req, res) {
 
 exports.putRecipeStatus = function (req, res) {
     Recipe.update({_id: req.params.recipe_id}, {
-        status:1
+        status:req.body.status
     },function (err, num, raw) {
         if (err)
             res.status(400).json(err);
@@ -275,7 +284,7 @@ exports.putRecipe = function (req, res) {
 };
 
 exports.deleteRecipe = function (req, res) {
-    Recipe.remove({_id: req.params.recipe_id}, function (err) {
+    Recipe.remove({_id: req.params.recipe_id},function (err) {
         if (err)
             res.status(400).json(err);
         else

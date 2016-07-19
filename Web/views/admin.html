@@ -22,234 +22,82 @@
 							<img src="images/avatar.jpg" alt="" />
 						</figure>
 						<div class="container">
-							<h2>王爸爸(管理员)</h2> 
+							<h2>王爸爸</h2> 
 						</div>
-								<div class="f-row full">
-									<input type="file"/>
-								</div>
 					</div>
 					<!--//profile left part-->
 					
 					<div class="three-fourth wow fadeInRight">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#about" title="About me">个人信息</a></li>
-								<li><a href="#recipes" title="My recipes">审核菜谱</a></li>
-								<li><a href="#favorites" title="My favorites">审核用户</a></li>
-								<li><a href="#posts" title="My posts">ヽ(•̀ω•́ )ゝ</a></li>
+								<li class="active"><a href="#my_profile#about" title="About me">信息</a></li>
+								<li><a href="#admin#recipes" title="My recipes">审核菜谱</a></li>
+								<li><a href="#admin#favorites" title="My favorites">查看意见</a></li>
+								<!-- <li><a href="#posts" title="My posts">ヽ(•̀ω•́ )ゝ</a></li> -->
 							</ul>
 						</nav>
-						
-						<!--about-->
+					
+					<!--about-->
 						<div class="tab-content" id="about">
 							<div class="row">
 								<dl class="basic two-third">
-									<dt>昵称</dt>
-									<dd>王爸爸</dd>
-									<dt>性别</dt>
-									<dd>男</dd>
-									<dt>生日</dt>
-									<dd>2016－01－01</dd>
-									<dt>邮箱</dt>
-									<dd>1234567@qq.com</dd>
-									<dt>个性签名</dt>
-									<dd>我是要成为海贼王的男人 (,,• ₃ •,,)</dd>
+									<dt>待查看意见数</dt>
+									<dd>{{contactnum}}</dd>
+									<dt>待审核食谱数</dt>
+									<dd>{{recipeNum}}</dd>
 								</dl>
-								
-								<div class="one-third">
-									<ul class="boxed gold">
-										<li class="light"><a href="/#/change_info" title="Best recipe"><i class="ico i-had_best_recipe"></i> <span>修改个人信息</span></a></li>
-										<li class="medium"><a href="/#/" title="Was featured"><i class="ico i-was_featured"></i> <span> (｡’▽’｡)♡</span></a></li>
-										<li class="dark"><a href="/#/" title="Added a first recipe"><i class="ico i-added_first_recipe"></i> <span> (っ・ω・)っ</span></a></li>
-										
-										<li class="medium"><a href="/#/" title="Added 10-20 recipes"><i class="ico i-added_several_recipes"></i> <span>≖‿≖✧</span></a></li>
-										<li class="dark"><a href="/#/change_pass" title="Events"><i class="ico i-wrote_blog_post"></i> <span> 修改密码
-</span></a></li>
-										<li class="light"><a href="/#/" title="Fish"><i class="ico i-wrote_comment"></i> <span>(●′ω`●)</span></a></li>
-										
-										<li class="dark"><a href="/#/" title="Fish"><i class="ico i-won_contest"></i> <span><(‵^′)></span></a></li>
-										<li class="light"><a href="/#/" title="Healthy"><i class="ico i-shared_recipe"></i> <span>(ง •̀_•́)ง</span></a></li>
-										<li class="medium"><a href="/#/" title="Was featured"><i class="ico i-was_featured"></i> <span>(๑•̀ㅂ•́)و✧</span></a></li>
-									</ul>
-								</div>
 							</div>
 						</div>
 						<!--//about-->
-					
+
 						<!--my recipes-->
+						<h2>待审核菜谱</h2>
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
 								<!--item-->
-								<div class="entry one-third">
+
+								<div class="entry one-third wow fadeInLeft" ng-repeat="recipe in recipelist">
 									<figure>
-										<img src="images/img6.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
+										<img ng-src="{{recipe.photo}}" alt="" />
+										<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="/#/recipe">这里是菜品名称</a></h2> 
+										<h2><a href="/#/check_recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i></i><a href="/#/delete_reason">删除菜谱</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="/#/recipe#comments">27</a></div>
+												<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+												<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img5.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipe">这里是菜品名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i></i><a href="/#/delete_reason">删除菜谱</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="/#/recipe#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img8.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看菜谱</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipe">这里是菜品名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i></i><a href="/#/delete_reason">删除菜谱</a></div>
-												<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-												<div class="comments"><i class="ico i-comments"></i><a href="/#/recipe#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
 							</div>
 						</div>
 						<!--//my recipes-->
 						
-						
-						<!--my favorites-->
-						<div class="tab-content" id="favorites">
-							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img6.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看用户</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipe">这里是用户名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><a href="/#/delete_reason">删除用户</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img5.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看用户</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipe">这里是用户名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><a href="/#/delete_reason">删除用户</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img8.jpg" alt="" />
-										<figcaption><a href="/#/recipe"><i class="ico i-view"></i> <span>查看用户</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="/#/recipe">这里是用户名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><a href="/#/delete_reason">删除用户</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-							</div>
-						</div>
 						<!--//my favorites-->
-						
+						<h2>用户意见</h2>
 						<div class="tab-content" id="posts">
 							<!--entries-->
 							<div class="entries row">
 								<!--item-->
-								<div class="entry one-third">
+								<div class="entry one-third wow fadeInLeft" ng-repeat="contact in contactlist">
 									<div class="container">
-										<h2><a href="blog_single.html">用户名</a></h2> 
+										<h2>来自用户:{{contact.name}}</h2> 
+										<a ng-click="checkIdea(contact._id)" class="button gold">已阅</a>
 										<div class="actions">
 											<div>
-												<div class="date"><a href="#">用户邮箱</a></div>
-												<div class="comments"><a href="#">手机号码</a></div>
+												<div class="comments">邮箱:{{contact.email}}</div>
+												<div class="comments">电话:{{contact.phone}}</div>
+
 											</div>
 										</div>
 										<div class="excerpt">
-											<p>用户们尽情的吐槽：为什么要删掉我的菜谱啦！ </p>
+											<p>意见:{{contact.comments}}</p>
 										</div>
 									</div>
 								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<div class="container">
-										<h2><a href="blog_single.html">用户名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="date"><a href="#">用户邮箱</a></div>
-												<div class="comments"><a href="#">手机号码</a></div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>用户们尽情的吐槽:皮卡～丘！</p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<div class="container">
-										<h2><a href="blog_single.html">用户名</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="date"><a href="#">用户邮箱</a></div>
-												<div class="comments"><a href="#">手机号码</a></div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>用户们尽情的吐槽：啦啦啦啦p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
+
 							</div>
 							<!--//entries-->
 						</div>

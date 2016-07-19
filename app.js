@@ -50,7 +50,7 @@ router.route('/contact')
 router.route('/getcontacts')
     .get(authController.isAuthenticated,contactController.getContacts);
 
-router.route('/deletecontact')
+router.route('/deletecontact/:contact_id')
     .delete(authController.isAuthenticated,adminGroup(),contactController.deleteContact);
 
 router.route('/follow')
@@ -92,6 +92,9 @@ router.route('/getrecipesbytype/:type')
 
 router.route('/getrecipesbylabel/:label')
     .get(authController.isAuthenticated, recipeController.getRecipesByLabel);
+
+router.route('/getcheckrecipes')
+    .get(authController.isAuthenticated, adminGroup(),recipeController.getCheckRecipes);
 
 router.route('/getrecipesbylevel/:level')
     .get(authController.isAuthenticated, recipeController.getRecipesByLevel);

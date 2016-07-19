@@ -62,9 +62,6 @@
 							<!--//one-third-->
 						</div>
 						<!--//recipe-->
-																<dt>发布者</dt>
-									<dd></dd>
-						
 						
 						<!--respond-->
 						<div class="comment-respond wow fadeInUp" id="respond">
@@ -78,11 +75,11 @@
 									</div>
 									
 									<div class="third bwrap">
-										<input type="submit" value="审核通过" />
+										<input type="submit" ng-click = "checkOK()" value="审核通过" />
 									</div>
 
 									<div class="third bwrap">
-										<input type="submit" value="审核不通过" />
+										<input type="submit" ng-click = "checkNotOK()" value="审核不通过" />
 									</div>
 
 									
@@ -106,18 +103,6 @@
 						<h3>{{author.nickname}}</h3>
 					</div>
 
-					
-
-
-					<div class="widget share">
-						<ul class="boxed">
-							<li class="light"><a href="#" title="Facebook"><i class="ico i-facebook"></i> <span>分享链接</span></a></li>
-							<li class="medium"><a href="#" title="Twitter"><i class="ico i-twitter"></i> <span>分享到微博</span></a></li>
-							<li class="dark"><a ng-click="addLike()" title="Favourites"><i class="ico i-favourites"></i> <span>{{likeMessage}}</span></a></li>
-						</ul>
-					</div>
-					
-					
 				</aside>
 				<!--//right sidebar-->
 			</div>

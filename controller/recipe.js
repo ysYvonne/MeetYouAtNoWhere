@@ -240,7 +240,7 @@ exports.getRecipesByLabel = function (req, res) {
 };
 
 exports.getRecipe = function (req, res) {
-    Recipe.find({_id: req.params.recipe_id,status:1},function (err, recipe) {
+    Recipe.find({_id: req.params.recipe_id},function (err, recipe) {
         if (err)
             res.status(400).json(err);
         else if (!recipe)

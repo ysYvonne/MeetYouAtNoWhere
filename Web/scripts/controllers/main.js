@@ -57,7 +57,7 @@ angular.module('kitchenSecretApp')
     $scope.message = "快来分享菜谱!"; 
     $scope.messagehref = "/#/submit_recipe";
 
-    if($scope.admin)
+    if($scope.admin == 'true' )
     {
         $scope.message = "快来管理菜谱！";
         $scope.messagehref = "/#/admin";

@@ -40,12 +40,18 @@ angular.module('kitchenSecretApp')
         });
      };
 
+     var deletemessage = "可能是黑暗料理吧~";
+
+     if($scope.deleteReason != undefined)
+      deletemessage = $scope.deleteReason;
+
      $scope.checkNotOK = function () {
       $http({
             method : 'PUT',
             url : 'api/putrecipestatus/'+$routeParams.id ,
             data :
-            "status=" + 2 ,
+            "status=" + 2 +
+            "deleteReason="+ deletemessage,
             headers : {
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }

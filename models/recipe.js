@@ -78,6 +78,10 @@ var RecipeSchema = new mongoose.Schema({
         required: true,
         default:0
     },
+    deleteReason: {
+        type: String,
+         default:"请不要上传黑暗料理~"
+    },
     status:{
         type:Number,
         required:true,

@@ -51,7 +51,7 @@
 								<li class="active"><a href="#my_profile#about" title="About me">个人信息</a></li>
 								<li><a href="#my_profile#recipes" title="My recipes">已上传菜谱</a></li>
 								<li><a href="#my_profile#favorites" title="My favorites">我的喜欢</a></li>
-								<li><a href="#my_profile#posts" title="My posts">待审核菜谱</a></li>
+								<li><a href="#my_profile#uncheck" title="My posts">待审核菜谱</a></li>
 							</ul>
 						</nav>
 						
@@ -69,8 +69,14 @@
 									<dd>{{awesomeThings[0].email}}</dd>
 									<dt>个性签名</dt>
 									<dd>{{awesomeThings[0].intro}}</dd>
-									<dt>食谱数</dt>
+									<dt>已上传食谱数</dt>
 									<dd>{{recipeNum}}</dd>
+									<dt>待审核食谱数</dt>
+									<dd>{{uncheckedRecipeNum}}</dd>
+									<dt>已收藏食谱数</dt>
+									<dd>{{likeNum}}</dd>
+									<dt>未通过审核食谱数</dt>
+									<dd>{{deletedRecipeNum}}</dd>
 								</dl>
 								
 								<div class="one-third">
@@ -86,7 +92,7 @@
 										
 										<li class="dark"><a href="/#/" title="Fish"><i class="ico i-won_contest"></i> <span><(‵^′)></span></a></li>
 										<li class="light"><a href="/#/" title="Healthy"><i class="ico i-shared_recipe"></i> <span>(ง •̀_•́)ง</span></a></li>
-										<li class="medium"><a href="/#/" title="Was featured"><i class="ico i-was_featured"></i> <span>(๑•̀ㅂ•́)و✧</span></a></li>
+										<li class="medium"><a href="/#/login" title="Was featured"><i class="ico i-was_featured"></i> <span>注销</span></a></li>
 									</ul>
 								</div>
 							</div>
@@ -150,32 +156,62 @@
 
 						<!--check-->
 						<h2>待审核</h2>
-						<div class="tab-content" id="favorites">
+						<div class="tab-content" id="uncheck">
 							<div class="entries row">
 
-								   <div class="entry one-third wow fadeInLeft" ng-repeat="recipe in likerecipelist">
-							<figure>
-								<img ng-src="{{recipe.photo}}" alt="" />
-								<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
-							</figure>
-							<div class="container">
-								<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
-								<div class="actions">
-									<div>
-										<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
-												<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
-												<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
-										<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
+								   <div class="entry one-third wow fadeInLeft" ng-repeat="recipe in unchecklist">
+										<figure>
+											<img ng-src="{{recipe.photo}}" alt="" />
+											<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+										</figure>
+										<div class="container">
+											<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
+											<div class="actions">
+												<div>
+													<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+															<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+															<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+													<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
+												</div>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						</div>
 
 							</div>
 						</div>
 						
 						<!--check-->
+
+						<!--check-->
+						<h2>未通过审核</h2>
+						<div class="tab-content" id="delete">
+							<div class="entries row">
+
+								   <div class="entry one-third wow fadeInLeft" ng-repeat="recipe in deletelist">
+										<figure>
+											<img ng-src="{{recipe.photo}}" alt="" />
+											<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+										</figure>
+										<div class="container">
+											<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
+											<div class="actions">
+												<div>
+													<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+															<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+															<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+													<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
+												</div>
+												<div class="excerpt">
+													<p>删除原因:{{recipe.deleteReason}}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+
+							</div>
+						</div>
 						
+						<!--check-->
 						
 					</div>
 				</div>

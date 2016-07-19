@@ -35,7 +35,4 @@ angular.module('kitchenSecretApp')
 		     });
 	     });
      };
-
-
-
   });

@@ -20,10 +20,26 @@ angular.module('kitchenSecretApp')
      .success(function  (data) {
      $scope.awesomeThings=data;
      });
+     $scope.recipeNum = 0;
+     $scope.uncheckedRecipeNum =0;
+     $scope.likeNum =0;
+     $scope.deletedRecipeNum = 0;
      $http.get('api/getownrecipe/'+$scope.userid)
      .success(function (data){
      $scope.recipeNum = data.length;
      $scope.recipelist=data;
+     });
+
+     $http.get('api/getownuncheckedrecipes/'+$scope.userid)
+     .success(function (data){
+     $scope.uncheckedRecipeNum = data.length;
+     $scope.unchecklist=data;
+     });
+
+      $http.get('api/getowndeletedrecipes/'+$scope.userid)
+     .success(function (data){
+     $scope.deletedRecipeNum = data.length;
+     $scope.deletelist=data;
      });
 
      //var likeList = new Array();

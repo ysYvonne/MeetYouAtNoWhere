@@ -82,6 +82,24 @@ exports.getOwnRecipes = function (req, res) {
     });
 };
 
+exports.getOwnUncheckedRecipes = function (req, res) {
+    Recipe.find({userId: req.params.user_id,status:0}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+    });
+};
+
+exports.getOwnDeletedRecipes = function (req, res) {
+    Recipe.find({userId: req.params.user_id,status:2}, function (err, recipes) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(200).json(recipes);
+    });
+};
+
 exports.getRecipesByLevel = function (req, res) {
     var level = "简单";
         if(req.params.level === "easy")
@@ -245,7 +263,8 @@ exports.putRecipeLike = function (req, res) {
 
 exports.putRecipeStatus = function (req, res) {
     Recipe.update({_id: req.params.recipe_id}, {
-        status:req.body.status
+        status:req.body.status,
+        deleteReason:req.body.deleteReason
     },function (err, num, raw) {
         if (err)
             res.status(400).json(err);
@@ -274,6 +293,7 @@ exports.putRecipe = function (req, res) {
         steps : req.body.steps,
         labels:req.body.labels,
         level :req.body.level,
+        status : 0,
         photo:photo
     },function (err, num, raw) {
         if (err)

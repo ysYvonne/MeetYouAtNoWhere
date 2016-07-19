@@ -49,9 +49,9 @@
 						<nav class="tabs">
 							<ul>
 								<li class="active"><a href="#my_profile#about" title="About me">个人信息</a></li>
-								<li><a href="#my_profile#recipes" title="My recipes">我的菜谱</a></li>
+								<li><a href="#my_profile#recipes" title="My recipes">已上传菜谱</a></li>
 								<li><a href="#my_profile#favorites" title="My favorites">我的喜欢</a></li>
-								<li><a href="#my_profile#posts" title="My posts">ヽ(•̀ω•́ )ゝ</a></li>
+								<li><a href="#my_profile#posts" title="My posts">待审核菜谱</a></li>
 							</ul>
 						</nav>
 						
@@ -94,7 +94,7 @@
 						<!--//about-->
 					
 						<!--my recipes-->
-						<h2>我的菜谱</h2>
+						<h2>已上传的菜谱</h2>
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
 
@@ -147,6 +147,34 @@
 						</div>
 						
 						<!--//my favorites-->
+
+						<!--check-->
+						<h2>待审核</h2>
+						<div class="tab-content" id="favorites">
+							<div class="entries row">
+
+								   <div class="entry one-third wow fadeInLeft" ng-repeat="recipe in likerecipelist">
+							<figure>
+								<img ng-src="{{recipe.photo}}" alt="" />
+								<figcaption><a href="/#/recipe/{{recipe._id}}"><i class="ico i-view"></i> <span>查看</span></a></figcaption>
+							</figure>
+							<div class="container">
+								<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
+								<div class="actions">
+									<div>
+										<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+												<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
+												<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+										<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+							</div>
+						</div>
+						
+						<!--check-->
 						
 						
 					</div>

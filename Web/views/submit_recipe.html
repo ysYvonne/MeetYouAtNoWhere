@@ -44,11 +44,11 @@
 								</div>
 								<div class="f-row">		
 									<div class="third">
-										难度:<select ng-model="level" ng-options="level for level in levels">
+										<select ng-model="level" ng-options="level for level in levels">
 										</select>
 									</div>
 									<div class="third">
-										种类:<select ng-model="type" ng-options="type for type in types"></select>
+										<select ng-model="type" ng-options="type for type in types"></select>
 									</div>
 								</div>
 							</section>
@@ -84,23 +84,19 @@
 							</section>	
 
 							
-							<section>
 								<h2>饮食偏好<span>(多选)</span></h2>
-								<div class="f-row full">
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">素食</label>
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">无糖</label>
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">低脂</label>
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">麻辣</label>
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">无乳糖</label>
-									<input type="checkbox" id="r1" name="category" />
-									<label for="r1">低卡</label>
-								</div>
-							</section>
+									<p><input type="checkbox" id="r1" name="category1" />
+									<label for="r1">素食</label></p>
+									<p><input type="checkbox" id="r2" name="category2" />
+									<label for="r2">无糖</label></p>
+									<p><input type="checkbox" id="r3" name="category3" />
+									<label for="r3">低脂</label><p>
+									<p><input type="checkbox" id="r4" name="category4" />
+									<label for="r4">麻辣</label><p>
+									<p><input type="checkbox" id="r5" name="category5" />
+									<label for="r5">无乳糖</label><p>
+									<p><input type="checkbox" id="r6" name="category6" />
+									<label for="r6">低卡</label><p>
 									<!-- <input type="radio" id="r1" name="radio1" checked = 'checked' ng-click="radioclick(1)">素食</input>
 
 									<input type="radio" id="r2" name="radio2" checked = 'checked' ng-click="radioclick(2)"/>无糖</input>

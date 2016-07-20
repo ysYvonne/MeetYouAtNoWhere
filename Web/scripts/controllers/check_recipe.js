@@ -50,8 +50,8 @@ angular.module('kitchenSecretApp')
             method : 'PUT',
             url : 'api/putrecipestatus/'+$routeParams.id ,
             data :
-            "status=" + 2 +
-            "deleteReason="+ deletemessage,
+            "deleteReason="+ $scope.deletemessage +
+            "&status=" + 2 ,
             headers : {
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }

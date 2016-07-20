@@ -273,16 +273,26 @@ exports.putRecipeStatus = function (req, res) {
     });
 };
 
-exports.putRecipe = function (req, res) {
-     if (!(req.files.picture === undefined)) {
-
-        var my_chance = new Chance();
+exports.putRecipePhoto = function (req, res) {
+      
+      if (!(req.files.picture === undefined)) {
+       var my_chance = new Chance();
         var guid = my_chance.guid();
         var type=req.files.picture.type.split('/')[1];
         var photo = guid + "."+type;
         fs.renameSync(req.files.picture.path, "./uploads/"+photo);
-   
-    }
+     }
+    Recipe.update({_id: req.params.recipe_id}, {
+        photo:photo
+    },function (err, num, raw) {
+        if (err)
+            res.status(400).json(err);
+        else
+            res.status(204).end();
+    });
+};
+
+exports.putRecipeInfo = function (req, res) {
     Recipe.update({_id: req.params.recipe_id}, {
         name : req.body.name,
         description : req.body.description,
@@ -294,7 +304,13 @@ exports.putRecipe = function (req, res) {
         labels:req.body.labels,
         level :req.body.level,
         status : 0,
-        photo:photo
+        noMeat : req.body.noMeat,
+        noSugar : req.body.noSugar,
+        lowFat : req.body.lowFat,
+        spicy : req.body.spicy,
+        noLactose : req.body.noLactose,
+        lowCal : req.body.lowCal
+
     },function (err, num, raw) {
         if (err)
             res.status(400).json(err);
@@ -302,6 +318,7 @@ exports.putRecipe = function (req, res) {
             res.status(204).end();
     });
 };
+
 
 exports.deleteRecipe = function (req, res) {
     Recipe.remove({_id: req.params.recipe_id},function (err) {

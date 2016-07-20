@@ -28,12 +28,17 @@
 							         <img ng-src="{{recipe.photo}}" alt="" />
 						        </figure>
 								<input type="file" ngf-select ng-model="picFile" name="file"    
-						             accept="image/*" ngf-max-size="20MB" required
+						             accept="image/*" ngf-max-size="20MB" 
 						             ngf-model-invalid="errorFile">
 						      <i ng-show="myForm.file.$error.maxSize">图片太大
 						          {{errorFile.size / 1000000|number:1}}MB: 最大20Mb</i>
-						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile" 移除图片</button>
+						      <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
+						       <button ng-click="picFile = null" ng-show="picFile" > 移除图片</button>
 							</section>	
+							<input type="submit" class="button" value="上传图片"  ng-click="PutRecipePhoto(picFile)" />
+							
+						</form>
+						<form>
 
 							<section>
 								<h2>基本信息</h2>
@@ -48,11 +53,11 @@
 								</div>
 								<div class="f-row">		
 									<div class="third">
-										<select ng-model="level" ng-options="level for level in levels">
+										难度:<select ng-model="level" ng-options="level for level in levels">
 										</select>
 									</div>
 									<div class="third">
-										<select ng-model="type" ng-options="type for type in types">
+										种类:<select ng-model="type" ng-options="type for type in types">
 										</select>
 									</div>
 								</div>
@@ -93,24 +98,25 @@
                             <div class="right">
 							<div class="ingredients">
 								<h2>饮食偏好<span>(多选)</span></h2>
-									<input type="radio" id="r1" name="radio1" checked = 'checked' onclick="radioclick1();">素食</input>
-								
-									<input type="radio" id="r2" name="radio2" checked = 'checked' onclick="radioclick2();"/>无糖</input>
-								
-									<input type="radio" id="r3" name="radio3" checked = 'checked' onclick="radioclick3();"/>低脂</input>
-								
-									<input type="radio" id="r4" name="radio4" checked = 'checked' onclick="radioclick4();"/>麻辣</input>
-								
-									<input type="radio" id="r5" name="radio5" checked = 'checked' onclick="radioclick5();"/>无乳糖</input>
-								
-									<input type="radio" id="r6" name="radio6" checked = 'checked' onclick="radioclick6();"/>低卡</input>
+									<p><input type="checkbox" id="r1" name="category1" ng-click="radioclick(1)"/>
+									<label for="r1">素食</label></p>
+									<p><input type="checkbox" id="r2" name="category2" ng-click="radioclick(2)"/>
+									<label for="r2">无糖</label></p>
+									<p><input type="checkbox" id="r3" name="category3" ng-click="radioclick(3)"/>
+									<label for="r3">低脂</label><p>
+									<p><input type="checkbox" id="r4" name="category4" ng-click="radioclick(4)"/>
+									<label for="r4">麻辣</label><p>
+									<p><input type="checkbox" id="r5" name="category5" ng-click="radioclick(5)"/>
+									<label for="r5">无乳糖</label><p>
+									<p><input type="checkbox" id="r6" name="category6" ng-click="radioclick(6)"/>
+									<label for="r6">低卡</label><p>
                             </div>
                             </div>
                             </div>
 							</section>
 													
 							<div class="f-row full">
-								<input type="submit" class="button" id="submitRecipe" value="确认修改"  ng-click="SubmitRecipe(picFile)" />
+								<input type="submit" class="button" id="submitRecipe" value="确认修改"  ng-click="PutRecipeInfo()" />
 							</div>
 						</form>
 					</div>

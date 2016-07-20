@@ -117,10 +117,13 @@ router.route('/putrecipestatus/:recipe_id')
 router.route('/putrecipelike/:recipe_id')
     .put(authController.isAuthenticated, recipeController.putRecipeLike);  
 
-router.route('/putrecipe/:recipe_id')
-    .put(authController.isAuthenticated, recipeController.putRecipe);            
+router.route('/putrecipe/:recipe_id/info')
+    .put(authController.isAuthenticated, recipeController.putRecipeInfo);  
 
-router.route('/deleterecipe')
+router.route('/putrecipe/:recipe_id/photo')
+    .put(authController.isAuthenticated,mulipartyMiddleware, recipeController.putRecipePhoto);        
+
+router.route('/deleterecipe/:recipe_id')
     .delete(authController.isAuthenticated, recipeController.deleteRecipe);
 
 router.route('/login')

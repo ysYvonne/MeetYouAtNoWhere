@@ -113,9 +113,10 @@
 										<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+												<div class="comments"><i class="ico i-medium"></i>{{recipe.level}}</div>
 												<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
 												<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+												<div class="comments"><a ng-click="deleteRecipe(recipe._id)">删除</a></div>
 												<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
 											</div>
 										</div>
@@ -168,9 +169,11 @@
 											<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 											<div class="actions">
 												<div>
-													<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+															<div class="comments"><i class="ico i-medium"></i>{{recipe.level}}</div>
 															<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
 															<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+															<div class="comments"><a ng-click="deleteRecipe(recipe._id)">删除</a></div>
+
 													<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
 												</div>
 											</div>
@@ -196,9 +199,11 @@
 											<h2><a href="/#/recipe/{{recipe._id}}">{{recipe.name}}</a></h2> 
 											<div class="actions">
 												<div>
-													<div class="difficulty"><i class="ico i-medium"></i>{{recipe.level}}</div>
+													        <div class="comments"><i class="ico i-medium"></i>{{recipe.level}}</div>
 															<div class="likes"><i class="ico i-likes"></i>{{recipe.likeNum}}</div>
 															<div class="comments"><a href="/#/change_recipe/{{recipe._id}}">修改</a></div>
+															<div class="comments"><a ng-click="deleteRecipe(recipe._id)">删除</a></div>
+
 													<!-- <div class="comments"><i class="ico i-comments"></i><a href="http://www.themeenergy.com/themes/html/social-chef//#/recipe#comments">{{recipe.favorateNum}}</a></div> -->
 												</div>
 												<div class="excerpt">

@@ -57,7 +57,7 @@ angular.module('kitchenSecretApp')
         {
             $scope.type = "海鲜";
         }
-        else if($routeParams.type.split("-")[1] === "fish")
+        else if($routeParams.type.split("-")[1] === "west")
         {
             $scope.type = "西餐";
         }

@@ -17,8 +17,8 @@ angular.module('kitchenSecretApp')
             $scope.newstring = {};
             $scope.orignalpic = {};
             var imagestring = {};
-            $scope.levels = ["难度", "简单", "中等", "困难"];
-            $scope.types = ["选择一个分类", "主菜","甜点", "饮料", "小吃", "西餐", "海鲜"];
+            $scope.levels = ["简单", "中等", "困难"];
+            $scope.types = [ "主菜","甜点", "饮料", "小吃", "西餐", "海鲜"];
             $scope.level = $scope.levels[0];
             $scope.type = $scope.types[0]
                 $scope.ingredientlist = [{
@@ -28,6 +28,7 @@ angular.module('kitchenSecretApp')
                 ];
 
             var selectlabel = [false,false,false,false,false,false];
+            
             $scope.radioclick = function (num) {
                 if(selectlabel[num-1])
                     selectlabel[num-1] = false;

@@ -19,8 +19,81 @@ angular.module('kitchenSecretApp')
 	     $http.get('api/users/'+data[0].userId).success(function  (data1) {
      		$scope.author=data1[0];
   		});
+         if($scope.recipe.labels === "主菜")
+            $scope.typeEnglish = "entree";
+        else if($scope.recipe.labels === "饮料")
+            $scope.typeEnglish = "drink";
+        else if($scope.recipe.labels === "甜点")
+            $scope.typeEnglish = "desert";
+        else if($scope.recipe.labels === "小吃")
+            $scope.typeEnglish = "snack";
+        else if($scope.recipe.labels === "海鲜")
+            $scope.typeEnglish = "fish";
+        else if($scope.recipe.labels === "西餐")
+            $scope.typeEnglish = "west";
+        $scope.likes = [{
+                name : $scope.recipe.labels,
+                form : "type",
+                label :$scope.typeEnglish
+            }
+        ];
+        if($scope.recipe.noMeat)
+        {
+            var obj = {
+                name : "素食",
+                form : "label",
+                label :"noMeat"
+            };
+            $scope.likes.push(obj);
+        };
+        if($scope.recipe.lowFat)
+        {
+            var obj = {
+                name : "低脂",
+                form : "label",
+                label :"lowFat"
+            };
+            $scope.likes.push(obj);
+        };
+        if($scope.recipe.noSugar)
+        {
+            var obj = {
+                name : "无糖",
+                form : "label",
+                label :"noSugar"
+            };
+            $scope.likes.push(obj);
+        };
+        if($scope.recipe.noLactose)
+        {
+            var obj = {
+                name : "无乳糖",
+                form : "label",
+                label :"noLactose"
+            };
+            $scope.likes.push(obj);
+        };
+        if($scope.recipe.lowCal)
+        {
+            var obj = {
+                name : "低卡路里",
+                form : "label",
+                label :"lowCal"
+            };
+            $scope.likes.push(obj);
+        };
+        if($scope.recipe.spicy)
+        {
+            var obj = {
+                name : "麻辣",
+                form : "label",
+                label :"spicy"
+            };
+            $scope.likes.push(obj);
+        };
 	});
 
+    $scope.typeEnglish ="";
 
 	//$scope.likeMessage = "正在找这货有没有赞过..";
 	$scope.likeMessage = "加入收藏";

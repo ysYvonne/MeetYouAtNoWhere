@@ -16,7 +16,10 @@
 			<div class="row">
 				<header class="s-title wow fadeInLeft">
 					<h1>{{recipe.name}}</h1>
+					
 				</header>
+
+				
 				<!--content-->
 				<section class="content three-fourth">
 					<div class="row">
@@ -61,110 +64,8 @@
 							</article>
 							<!--//one-third-->
 						</div>
-						<!--//recipe-->
-																<dt>发布者</dt>
-									<dd></dd>
-						<!--comments-->
-						<div class="comments wow fadeInUp" id="comments">
-							<h2>5条评论 </h2>
-							<ol class="comment-list">
-								<!--comment-->
-								<li class="comment depth-1">
-									<div class="avatar"><a href="my_profile.html"><img src="images/avatar1.jpg" alt="" /></a></div>
-									<div class="comment-box">
-										<div class="comment-author meta"> 
-											<strong>王爸爸</strong> 发表于1分钟前 <a href="#" class="comment-reply-link"> 回复</a>
-										</div>
-										<div class="comment-text">
-											<p>啊哈哈哈哈哈哈哈哈哈</p>
-										</div>
-									</div> 
-								</li>
-								<!--//comment-->
-								
-								<!--comment-->
-								<li class="comment depth-1">
-									<div class="avatar"><a href="my_profile.html"><img src="images/avatar2.jpg" alt="" /></a></div>
-									<div class="comment-box">
-										<div class="comment-author meta"> 
-											<strong>博</strong> 发表于1个月前 <a href="#" class="comment-reply-link"> 回复</a>
-										</div>
-										<div class="comment-text">
-											<p>皮卡皮卡</p>
-										</div>
-									</div> 
-								</li>
-								<!--//comment-->
-								
-								<!--comment-->
-								
-								
-								<!--comment-->
-								<li class="comment depth-1">
-									<div class="avatar"><a href="my_profile.html"><img src="images/avatar3.jpg" alt="" /></a></div>
-									<div class="comment-box">
-										<div class="comment-author meta"> 
-											<strong>歆曼曼</strong> 发表于1个月前 <a href="#" class="comment-reply-link"> 回复</a>
-										</div>
-										<div class="comment-text">
-											<p>(⊙o⊙)哦</p>
-										</div>
-									</div> 
-								</li>
-								<!--//comment-->
-							</ol>
-						</div>
-						<!--//comments-->
 						
-						<!--respond-->
-						<div class="comment-respond wow fadeInUp" id="respond">
-							<h2>评论</h2>
-							<div class="container">
-								<p><strong>注意:</strong> 用户评论不代表本站立场，评论需正确回答验证问题，我们保留删除用户不当评论的权力</p>
-								<p>您的电子邮件地址将受到保护<span class="req">*</span></p>
-								<form>
-									<div class="f-row">
-										<div class="third">
-											<input type="text" placeholder="您的姓名" />
-											<span class="req">*</span>
-										</div>
-										
-										<div class="third">
-											<input type="email" placeholder="电子邮件" />
-											<span class="req">*</span>
-										</div>
-										
-										<div class="third">
-											<input type="text" placeholder="个人主页" />
-										</div>
-									
-									</div>
-									<div class="f-row">
-										<textarea></textarea>
-									</div>
-									
-									<div class="f-row">
-										<div class="third captcha">
-											<label>2+10=?</label>
-											<input type="text" />
-											<span class="req">*</span>
-										</div>
-										
-										<div class="third bwrap">
-											<input type="submit" value="提交评论" />
-										</div>
-									</div>
-									
-									<div class="bottom">
-										<div class="f-row checkbox">
-											<input type="checkbox" id="ch1" />
-											<label for="ch1">通过邮件通知新评论</label>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-						<!--//respond-->
+					
 					</div>
 				</section>
 				<!--//content-->
@@ -189,6 +90,11 @@
 							<li class="medium"><a href="#" title="Twitter"><i class="ico i-twitter"></i> <span>分享到微博</span></a></li>
 							<li class="dark"><a ng-click="addLike()" title="Favourites"><i class="ico i-favourites"></i> <span>{{likeMessage}}</span></a></li>
 						</ul>
+					</div>
+					<h3>饮食偏好</h3>
+					<div ng-repeat="like in likes">
+						<a href="/#/recipes/{{like.form}}-{{like.label}}" class="button gold">#{{like.name}}</a>
+						<h3></h3>
 					</div>
 					
 					

@@ -28,8 +28,11 @@ exports.postRecipes = function (req, res) {
         var guid = my_chance.guid();
         var type=req.files.picture.type.split('/')[1];
         recipe.photo = guid + "."+type;
+        if(type==="octet-stream")
+            recipe.photo = guid + ".jpeg";
         // console.log(recipe.photo);
         // var base64Data = req.files.picture.replace(/^data:image\/png;base64,/, "");
+
         fs.renameSync(req.files.picture.path, "./uploads/"+recipe.photo);
         // fs.writeFile(recipe.photo, file, 'base64' ,function (err) {
             // if (err)

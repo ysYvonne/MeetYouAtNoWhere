@@ -44,11 +44,11 @@
 								</div>
 								<div class="f-row">		
 									<div class="third">
-										<select ng-model="level" ng-options="level for level in levels">
+										难度:<select ng-model="level" ng-options="level for level in levels">
 										</select>
 									</div>
 									<div class="third">
-										<select ng-model="type" ng-options="type for type in types"></select>
+										种类:<select ng-model="type" ng-options="type for type in types"></select>
 									</div>
 								</div>
 							</section>
@@ -97,18 +97,6 @@
 									<label for="r5">无乳糖</label><p>
 									<p><input type="checkbox" id="r6" name="category6" ng-click="radioclick(6)"/>
 									<label for="r6">低卡</label><p>
-									<!-- <input type="radio" id="r1" name="radio1" checked = 'checked' ng-click="radioclick(1)">素食</input>
-
-									<input type="radio" id="r2" name="radio2" checked = 'checked' ng-click="radioclick(2)"/>无糖</input>
-								
-									<input type="radio" id="r3" name="radio3" checked = 'checked' ng-click="radioclick(3)"/>低脂</input>
-								
-									<input type="radio" id="r4" name="radio4" checked = 'checked' ng-click="radioclick(4)"/>麻辣</input>
-								
-									<input type="radio" id="r5" name="radio5" checked = 'checked' ng-click="radioclick(5)"/>无乳糖</input>
-								
-									<input type="radio" id="r6" name="radio6" checked = 'checked' ng-click="radioclick(6)"/>低卡</input> -->
-                       
 													
 							<div class="f-row full">
 								<input type="submit" class="button" id="submitRecipe" value="发布"  ng-click="SubmitRecipe(picFile)" />

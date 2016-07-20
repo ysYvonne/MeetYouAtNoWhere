@@ -93,7 +93,7 @@ angular.module('kitchenSecretApp')
                 file.upload.then(function (response) {
                     $timeout(function () {
                         file.result = response.data;
-                        $location.path('/recipes');
+                        $location.path('/my_profile');
                     });
                 }, function (response) {
                     if (response.status > 0)
